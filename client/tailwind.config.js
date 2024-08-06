@@ -25,7 +25,7 @@ module.exports = {
         "primary-foreground": "#fff",
         primary_dark: "#051b54",
         primary_light: "#95a7c9",
-        secondary: "#E9B120",
+        sec: "#E9B120",
         secondary_light: "#E9B1201A",
         txt_light: "#FBD1D1",
 

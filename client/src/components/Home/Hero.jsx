@@ -11,26 +11,24 @@ import Image from "next/image";
 import { heroSlides } from "@/src/data/data";
 import Link from "next/link";
 
-const Slide = ({ img, url }) => {
+const Slide = ({ img }) => {
   return (
     <div className="h-full w-full flex justify-center items-center">
-      <Link href={`${url}`} className="w-full h-full">
-        <Image
-          src={img}
-          width={500}
-          height={500}
-          className="block w-full h-full object-cover"
-          alt="mmj"
-          priority
-        />
-      </Link>
+      <Image
+        src={img}
+        width={500}
+        height={500}
+        className="block w-full h-full object-cover"
+        alt="mmj"
+        priority
+      />
     </div>
   );
 };
 
 const Hero = () => {
   return (
-    <section className="w-full min-h-[80vh] bg-white">
+    <section className="w-full min-h-[80vh] ">
       <Swiper
         pagination={{
           dynamicBullets: true,
@@ -46,7 +44,9 @@ const Hero = () => {
         {heroSlides.map((item, key) => {
           return (
             <SwiperSlide>
-              <Slide img={item.img} url={item.url} key={key} />
+              <Link href={`${item.url}`} className="w-full h-full">
+                <Slide img={item.img} key={key} />
+              </Link>
             </SwiperSlide>
           );
         })}

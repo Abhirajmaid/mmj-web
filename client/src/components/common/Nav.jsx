@@ -24,7 +24,7 @@ const Nav = () => {
           <span>Metal Rates</span>
         </div>
       </div>
-      <div className="w-full flex justify-between bg-white">
+      <div className="w-full flex justify-between bg-white text-black">
         <div>
           <Logo />
         </div>
