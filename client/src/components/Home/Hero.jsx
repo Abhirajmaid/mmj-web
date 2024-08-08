@@ -43,9 +43,9 @@ const Hero = () => {
       >
         {heroSlides.map((item, key) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={key}>
               <Link href={`${item.url}`} className="w-full h-full">
-                <Slide img={item.img} key={key} />
+                <Slide img={item.img} />
               </Link>
             </SwiperSlide>
           );

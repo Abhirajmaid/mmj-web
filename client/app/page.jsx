@@ -1,9 +1,14 @@
 import {
   CategorySec,
+  DiamondSec,
   Divider,
   FeaturedSec,
+  Footer,
+  GallerySec,
   Hero,
+  MensSec,
   PromisesSec,
+  StoreLocationSec,
 } from "@/src/components";
 
 export default function Home() {
@@ -16,6 +21,13 @@ export default function Home() {
         <PromisesSec />
         <FeaturedSec />
         <Divider />
+        <DiamondSec />
+        <Divider />
+        <MensSec />
+        <Divider />
+        <StoreLocationSec />
+        <Divider />
+        <GallerySec />
       </div>
     </page>
   );

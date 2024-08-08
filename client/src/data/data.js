@@ -130,3 +130,31 @@ export const productData = [
         feature: "bestSeller"
     },
 ]
+
+export const mensCat = [
+    {
+        img: '/goldchain.png',
+        category: "Gold Chain",
+        btnLink: "/diamond",
+    },
+    {
+        img: '/goldring.png',
+        category: "Gold Ring",
+        btnLink: "/gold",
+    },
+    {
+        img: '/pendant.png',
+        category: "Pendant",
+        btnLink: "/bullions",
+    },
+    {
+        img: '/goldkada.png',
+        category: "Gold Kada",
+        btnLink: "/silver",
+    },
+    {
+        img: '/silverjewellery.png',
+        category: "Silver Jewellery",
+        btnLink: "/silver",
+    },
+]

@@ -12,7 +12,7 @@ const CategoryCard = ({ category, btnLink, detail, img }) => {
           src={img}
           width={500}
           height={500}
-          className="w-full h-full"
+          className="w-full h-full object-cover"
           alt="mmj"
         />
       </div>
@@ -31,7 +31,7 @@ const CategoryCard = ({ category, btnLink, detail, img }) => {
 
 const CategorySec = () => {
   return (
-    <div className="w-full flex flex-col items-center justify-center mt-12">
+    <section className="w-full flex flex-col items-center justify-center mt-12">
       <div>
         <SectionTitle
           title="Shop by Category"
@@ -44,7 +44,7 @@ const CategorySec = () => {
           return <CategoryCard {...item} key={id} />;
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

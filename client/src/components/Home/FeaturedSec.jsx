@@ -16,7 +16,7 @@ import { Icon } from "@iconify/react";
 const FeaturedSec = () => {
   const [feature, setFeature] = useState("newIns");
   return (
-    <div className="mt-[60px]">
+    <section className="mt-[60px] mb-[30px]">
       <div className="flex gap-[10px] w-full justify-center items-center text-black">
         <h1
           className={`text-[32px] flex flex-col cursor-pointer ${
@@ -44,8 +44,8 @@ const FeaturedSec = () => {
       </div>
       <div className="w-full overflow-hidden my-[30px]">
         <Swiper
-          slidesPerView={5.5}
-          spaceBetween={5}
+          slidesPerView={5}
+          spaceBetween={10}
           freeMode={false}
           modules={[FreeMode, Keyboard, Mousewheel, Autoplay]}
           keyboard={false}
@@ -72,7 +72,7 @@ const FeaturedSec = () => {
             })}
         </Swiper>
       </div>
-    </div>
+    </section>
   );
 };
 
