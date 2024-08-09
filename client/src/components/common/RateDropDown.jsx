@@ -1,0 +1,90 @@
+"use client";
+import { useState } from "react";
+import { Icon } from "@iconify/react";
+import { AnimatePresence, motion } from "framer-motion";
+
+const rates = [
+  {
+    metal: "Silver",
+    rate: "89",
+  },
+  {
+    metal: "24KT",
+    rate: "7,178",
+  },
+  {
+    metal: "22KT",
+    rate: "6,673",
+  },
+  {
+    metal: "18KT",
+    rate: "5,618",
+  },
+  {
+    metal: "14KT",
+    rate: "4,400",
+  },
+];
+
+const RateDropDown = () => {
+  return (
+    <motion.div
+      className="flex flex-col items-center bg-white text-black p-5 shadow-lg w-full border-black/50 border"
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      initial="hidden"
+      animate="visible"
+      transition={{ ease: "easeInOut", duration: 0.3 }}
+    >
+      <h3 className="text-[24px] font-light">Today's Gold Rate</h3>
+      <span className="w-[90%] mt-[10px] mb-[18px] h-[1.5px] bg-sec"></span>
+      <ul className="gap-[20px] flex flex-col w-full mb-[22px]">
+        {rates?.map((item, id) => (
+          <div key={id} className="flex justify-between items-center">
+            <span className="font-light text-[18px]">{item.metal}</span>
+            <span className="font-medium text-[16px]">₹{item.rate}/10gm</span>
+          </div>
+        ))}
+      </ul>
+      <span className="w-[90%] mb-[18px] h-[2px] bg-sec"></span>
+      <p className="text-[18px] w-full text-start">
+        Updated On:
+        <br /> 28/06/2024 09:30AM
+      </p>
+    </motion.div>
+  );
+};
+
+export const RateLink = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <div
+        className="relative w-fit h-fit "
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+      >
+        <div className="flex items-center gap-1 font-semibold cursor-pointer">
+          <Icon icon="streamline:gold" width="17" className="-mt-2" />
+          <span>Metal Rates</span>
+        </div>
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              className="absolute right-[50%] top-6 z-50 w-[250px] cursor-pointer"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 15 }}
+            >
+              <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent " />
+              <RateDropDown />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </>
+  );
+};

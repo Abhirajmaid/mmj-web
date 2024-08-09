@@ -4,7 +4,10 @@ import React from "react";
 
 const StoreLocationSec = () => {
   return (
-    <section className="w-full flex gap-[60px] items-center justify-center bg-primary text-white">
+    <section
+      id="storeLocation"
+      className="w-full flex gap-[60px] items-center justify-center bg-primary text-white"
+    >
       <Image
         src="/mmjstore.png"
         width={500}
@@ -22,7 +25,7 @@ const StoreLocationSec = () => {
           rings, silver classics, elegant accessories, and precious gifts for
           any occasion at our MMJ store.
         </p>
-        <Link href="/store-location">
+        <Link href="https://maps.app.goo.gl/ttGrwNSfCm5hRny49" target="_blank">
           <button className="bg-sec w-[20%] text-black p-3 uppercase cursor-pointer">
             Store Location
           </button>

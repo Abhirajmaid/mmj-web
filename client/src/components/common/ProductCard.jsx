@@ -5,7 +5,7 @@ import React from "react";
 
 const ProductCard = ({ img, price, product_code }) => {
   return (
-    <Link href={`${product_code}`} className="cursor-pointer">
+    <Link href={`/jewellery/${product_code}`} className="cursor-pointer">
       <div className="relative w-[280px] h-auto hover:bg-secondary_light flex flex-col overflow-hidden border-[0.7px] border-[#424242]/30 rounded-lg">
         <div className="w-full h-[280px]">
           <Image

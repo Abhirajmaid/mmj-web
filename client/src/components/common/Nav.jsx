@@ -4,25 +4,35 @@ import React from "react";
 import { navLinks } from "../../data/navLinks";
 import { SingleLink } from "..";
 import Logo from "./Logo";
+import Link from "next/link";
+import { RateLink } from "./RateDropDown";
 
 const Nav = () => {
   return (
     <nav className="w-full">
       <div className="w-full px-10 py-1 flex justify-between items-center text-[13px] bg-primary text-txt_light">
         <div className="w-[40%] flex gap-4 items-center">
-          <div className="flex items-center gap-1 font-semibold">
+          <Link
+            href="https://wa.me/7385302967"
+            target="_blank"
+            className="flex items-center gap-1 font-semibold"
+          >
             <Icon icon="ic:sharp-whatsapp" width="20" />
             <span>WhatsApp</span>
-          </div>
-          <div className="flex items-center gap-1 font-semibold">
+          </Link>
+          <Link
+            href="#storeLocation"
+            className="flex items-center gap-1 font-semibold"
+          >
             <Icon icon="ic:outline-store" width="20" />
             <span>Store Locator</span>
-          </div>
+          </Link>
         </div>
-        <div className="flex items-center gap-1 font-semibold">
+        {/* <div className="flex items-center gap-1 font-semibold">
           <Icon icon="streamline:gold" width="17" className="-mt-1" />
           <span>Metal Rates</span>
-        </div>
+        </div> */}
+        <RateLink />
       </div>
       <div className="w-full flex justify-between bg-white text-black">
         <div>
@@ -34,7 +44,7 @@ const Nav = () => {
             className="w-[100%] p-[10px] px-6 border border-[#C1C1C1] rounded-3xl placeholder:italic placeholder:text-sm"
             placeholder="What are you looking for?"
           />
-          <ul className="flex gap-8 items-center w-[80%] justify-center">
+          <ul className="flex gap-8 items-center w-auto justify-center">
             {navLinks.map((link) => (
               <SingleLink {...link} key={link.id} />
             ))}

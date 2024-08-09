@@ -135,26 +135,26 @@ export const mensCat = [
     {
         img: '/goldchain.png',
         category: "Gold Chain",
-        btnLink: "/diamond",
+        btnLink: "/jewellery_mens?product_type=chains",
     },
     {
         img: '/goldring.png',
         category: "Gold Ring",
-        btnLink: "/gold",
+        btnLink: "/jewellery_mens?product_type=rings",
     },
     {
         img: '/pendant.png',
         category: "Pendant",
-        btnLink: "/bullions",
+        btnLink: "/jewellery_mens?product_type=pendants",
     },
     {
         img: '/goldkada.png',
         category: "Gold Kada",
-        btnLink: "/silver",
+        btnLink: "/jewellery_mens?product_type=gold_kada",
     },
     {
         img: '/silverjewellery.png',
         category: "Silver Jewellery",
-        btnLink: "/silver",
+        btnLink: "/jewellery_mens?product_type=silver",
     },
 ]
