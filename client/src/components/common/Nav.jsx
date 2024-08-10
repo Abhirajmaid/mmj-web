@@ -1,3 +1,4 @@
+"use client";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import React from "react";
@@ -6,8 +7,11 @@ import { SingleLink } from "..";
 import Logo from "./Logo";
 import Link from "next/link";
 import { RateLink } from "./RateDropDown";
+import { usePathname } from "next/navigation";
 
 const Nav = () => {
+  const pathname = usePathname();
+  const isActive = (href) => pathname == href;
   return (
     <nav className="w-full">
       <div className="w-full px-10 py-1 flex justify-between items-center text-[13px] bg-primary text-txt_light">
@@ -28,10 +32,6 @@ const Nav = () => {
             <span>Store Locator</span>
           </Link>
         </div>
-        {/* <div className="flex items-center gap-1 font-semibold">
-          <Icon icon="streamline:gold" width="17" className="-mt-1" />
-          <span>Metal Rates</span>
-        </div> */}
         <RateLink />
       </div>
       <div className="w-full flex justify-between bg-white text-black">
@@ -46,7 +46,7 @@ const Nav = () => {
           />
           <ul className="flex gap-8 items-center w-auto justify-center">
             {navLinks.map((link) => (
-              <SingleLink {...link} key={link.id} />
+              <SingleLink {...link} key={link.id} isActive={isActive} />
             ))}
           </ul>
         </div>

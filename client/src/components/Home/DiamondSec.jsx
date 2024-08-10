@@ -15,7 +15,7 @@ const DiamondSec = () => {
       </div>
       <div className="grid grid-cols-3 grid-rows-2 grid-flow-col gap-4 h-[650px] mt-[30px]">
         <Link
-          href="/diamond?product_type=rings"
+          href="/jewellery/diamond?product_type=rings"
           className=" row-span-1 bg-black rounded-lg overflow-hidden"
         >
           <Image
@@ -27,7 +27,7 @@ const DiamondSec = () => {
           />
         </Link>
         <Link
-          href="/diamond?product_type=bangles"
+          href="/jewellery/diamond?product_type=bangles"
           className=" row-span-1 bg-black rounded-lg overflow-hidden"
         >
           <Image
@@ -39,7 +39,7 @@ const DiamondSec = () => {
           />
         </Link>
         <Link
-          href="/diamond"
+          href="/jewellery/diamond"
           className=" row-span-2 bg-black rounded-lg overflow-hidden"
         >
           <Image
@@ -51,7 +51,7 @@ const DiamondSec = () => {
           />
         </Link>
         <Link
-          href="/diamond?product_type=earrings"
+          href="/jewellery/diamond?product_type=earrings"
           className=" row-span-1 bg-black rounded-lg overflow-hidden"
         >
           <Image
@@ -63,7 +63,7 @@ const DiamondSec = () => {
           />
         </Link>
         <Link
-          href="/diamond?product_type=mangalsutras"
+          href="/jewellery/diamond?product_type=mangalsutras"
           className=" row-span-1 bg-black rounded-lg overflow-hidden"
         >
           <Image

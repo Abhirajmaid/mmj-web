@@ -62,12 +62,16 @@ html {
   @apply hidden;
 }
 
+.btn {
+  @apply px-4 py-[0.35rem] rounded-lg sm:cursor-pointer !uppercase flex-shrink-0;
+}
+
 .btn-primary {
-  @apply bg-primary text-white hover:bg-primary/70 shadow-md shadow-primary/60;
+  @apply bg-primary text-white hover:bg-primary/80;
 }
 
 .btn-secondary {
-  @apply bg-secondary text-white hover:bg-[#02293e];
+  @apply bg-sec text-white hover:bg-sec/80;
 }
 
 .input {

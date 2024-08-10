@@ -21,25 +21,25 @@ export const categories = [
     {
         img: '/diamond.png',
         category: "Diamond",
-        btnLink: "/diamond",
+        btnLink: "/jewellery/diamond",
         detail: "For the most awaited moment!"
     },
     {
         img: '/gold.png',
         category: "Gold",
-        btnLink: "/gold",
+        btnLink: "/jewellery/gold",
         detail: "For the beauty and the bliss!"
     },
     {
         img: '/bullion.png',
         category: "Bullions",
-        btnLink: "/bullions",
+        btnLink: "/jewellery/bullions",
         detail: "For auspicious occasions!"
     },
     {
         img: '/silver.png',
         category: "Silver",
-        btnLink: "/silver",
+        btnLink: "/jewellery/silver",
         detail: "For everyday elegance!"
     },
 ]
@@ -135,26 +135,26 @@ export const mensCat = [
     {
         img: '/goldchain.png',
         category: "Gold Chain",
-        btnLink: "/jewellery_mens?product_type=chains",
+        btnLink: "/jewellery/jewellery_mens?product_type=chains",
     },
     {
         img: '/goldring.png',
         category: "Gold Ring",
-        btnLink: "/jewellery_mens?product_type=rings",
+        btnLink: "/jewellery/jewellery_mens?product_type=rings",
     },
     {
         img: '/pendant.png',
         category: "Pendant",
-        btnLink: "/jewellery_mens?product_type=pendants",
+        btnLink: "/jewellery/jewellery_mens?product_type=pendants",
     },
     {
         img: '/goldkada.png',
         category: "Gold Kada",
-        btnLink: "/jewellery_mens?product_type=gold_kada",
+        btnLink: "/jewellery/jewellery_mens?product_type=gold_kada",
     },
     {
         img: '/silverjewellery.png',
         category: "Silver Jewellery",
-        btnLink: "/jewellery_mens?product_type=silver",
+        btnLink: "/jewellery/jewellery_mens?product_type=silver",
     },
 ]
