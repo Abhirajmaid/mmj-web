@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={open_sans.className}>
         <Nav />
+        <div className="mt-[137px]" />
         {children}
         <Footer />
       </body>

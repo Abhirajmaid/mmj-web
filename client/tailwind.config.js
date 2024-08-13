@@ -18,7 +18,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        bg: "#F2F2F7",
+        bg: "#fcfcfc",
         bg_dark: "#E3E6E6",
         btn_gray: "#E7E7E7",
         primary: "#0A2874",

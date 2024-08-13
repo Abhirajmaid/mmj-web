@@ -75,7 +75,11 @@ html {
 }
 
 .input {
-  @apply border !border-slate-300 bg-transparent px-4 py-[0.35rem] outline-none focus:!border-primary;
+  @apply border !border-slate-300 bg-transparent px-4 py-[10px] outline-none focus:!border-primary;
+}
+
+.input-number {
+  @apply [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none;
 }
 
 a.active {

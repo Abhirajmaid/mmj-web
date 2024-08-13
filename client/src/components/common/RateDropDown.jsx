@@ -29,7 +29,7 @@ const rates = [
 const RateDropDown = () => {
   return (
     <motion.div
-      className="flex flex-col items-center bg-white text-black p-5 shadow-lg w-full border-black/50 border"
+      className="flex flex-col items-center bg-white text-black p-4 shadow-lg w-full border-black/30 border"
       variants={{
         hidden: { opacity: 0 },
         visible: { opacity: 1 },
@@ -38,18 +38,18 @@ const RateDropDown = () => {
       animate="visible"
       transition={{ ease: "easeInOut", duration: 0.3 }}
     >
-      <h3 className="text-[24px] font-light">Today's Gold Rate</h3>
-      <span className="w-[90%] mt-[10px] mb-[18px] h-[1.5px] bg-sec"></span>
-      <ul className="gap-[20px] flex flex-col w-full mb-[22px]">
+      <h3 className="text-[22px] font-light">Today's Gold Rate</h3>
+      <span className="w-[80%] mt-[10px] mb-[18px] h-[1px] bg-sec"></span>
+      <ul className="gap-[15px] flex flex-col w-full mb-[22px]">
         {rates?.map((item, id) => (
           <div key={id} className="flex justify-between items-center">
             <span className="font-light text-[18px]">{item.metal}</span>
-            <span className="font-medium text-[16px]">₹{item.rate}/10gm</span>
+            <span className="font-medium text-[16px]">₹{item.rate}</span>
           </div>
         ))}
       </ul>
-      <span className="w-[90%] mb-[18px] h-[2px] bg-sec"></span>
-      <p className="text-[18px] w-full text-start">
+      <span className="w-[80%] mb-[18px] h-[1px] bg-sec"></span>
+      <p className="text-[14px] w-full text-start">
         Updated On:
         <br /> 28/06/2024 09:30AM
       </p>
@@ -74,7 +74,7 @@ export const RateLink = () => {
         <AnimatePresence>
           {open && (
             <motion.div
-              className="absolute right-[50%] top-6 z-50 w-[250px] cursor-pointer"
+              className="absolute right-[50%] top-6 z-50 w-[270px] cursor-pointer"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}

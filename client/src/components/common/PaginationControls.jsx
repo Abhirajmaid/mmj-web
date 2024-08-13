@@ -1,27 +1,38 @@
 "use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-const PaginationControls = () => {
+const PaginationControls = ({ count }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams);
 
   const page = searchParams.get("page") ?? "1";
-  const per_page = searchParams.get("per_page") ?? "6";
+  const per_page = searchParams.get("per_page") ?? "12";
 
-  const max_limit = Math.ceil(10 / Number(per_page));
+  const max_limit = Math.ceil(count / Number(per_page));
+
+  const handleAppendQueryParamPrev = () => {
+    params.delete("page");
+    params.delete("per_page");
+    params.append("page", Number(page) - 1); // Append the new parameter
+    params.append("per_page", per_page); // Append the new parameter
+    router.push(`?${params.toString()}`); // Update the URL
+  };
+  const handleAppendQueryParamNext = () => {
+    params.delete("page");
+    params.delete("per_page");
+    params.append("page", Number(page) + 1); // Append the new parameter
+    params.append("per_page", per_page); // Append the new parameter
+    router.push(`?${params.toString()}`); // Update the URL
+  };
 
   return (
-    <div className="mt-[80px] flex gap-4 items-center justify-center">
+    <div className="mt-[80px] mb-[60px] flex gap-4 items-center justify-center">
       {page > 1 ? (
         <button
           className="btn bg-sec text-white"
-          onClick={() => {
-            router.push(
-              pathname + `?page=${Number(page) - 1}&per_page=${per_page}`
-            );
-          }}
+          onClick={handleAppendQueryParamPrev}
         >
           prev page
         </button>
@@ -30,20 +41,13 @@ const PaginationControls = () => {
       )}
 
       <div>
-        {page} / {Math.ceil(10 / Number(per_page))}
+        {page} / {Math.ceil(count / Number(per_page))}
       </div>
 
       {page < max_limit ? (
         <button
           className="btn bg-sec text-white "
-          onClick={() => {
-            router.push(
-              pathname + `/?page=${Number(page) + 1}&per_page=${per_page}`
-              //   pathname +
-              //     params.append("page", "hi") +
-              //     params.append("per_page", per_page)
-            );
-          }}
+          onClick={handleAppendQueryParamNext}
         >
           next page
         </button>

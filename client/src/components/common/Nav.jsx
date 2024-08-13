@@ -13,7 +13,7 @@ const Nav = () => {
   const pathname = usePathname();
   const isActive = (href) => pathname == href;
   return (
-    <nav className="w-full">
+    <nav className="w-full fixed z-50 top-0 left-0">
       <div className="w-full px-10 py-1 flex justify-between items-center text-[13px] bg-primary text-txt_light">
         <div className="w-[40%] flex gap-4 items-center">
           <Link
@@ -34,7 +34,7 @@ const Nav = () => {
         </div>
         <RateLink />
       </div>
-      <div className="w-full flex justify-between bg-white text-black">
+      <div className="w-full flex justify-between bg-white text-black ">
         <div>
           <Logo />
         </div>

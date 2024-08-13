@@ -42,7 +42,7 @@ const SingleLink = ({ id, linkText, url, subLinks, target, isActive }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
             >
-              <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent " />
+              <div className="absolute -top-4 left-0 right-0 h-6 bg-transparent " />
 
               {/* <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-white" /> // Tringle arrow on top */}
               <Dropdown subLinks={subLinks} />

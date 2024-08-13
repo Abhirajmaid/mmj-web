@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { productData } from "@/src/data/data";
+import { goldItems, productData } from "@/src/data/data";
 import ProductCard from "../common/ProductCard";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -56,14 +56,14 @@ const FeaturedSec = () => {
           }}
           className="mySwiper h-auto w-[80%] !overflow-visible "
         >
-          {productData
+          {goldItems
             .filter((item) => {
               return item.feature == feature;
             })
             .map((item, key) => {
               return (
                 <SwiperSlide
-                  className="flex items-center justify-center"
+                  className="flex items-center justify-center w-[280px] h-auto"
                   key={key}
                 >
                   <ProductCard {...item} />

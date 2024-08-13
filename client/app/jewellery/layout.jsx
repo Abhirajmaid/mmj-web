@@ -7,7 +7,6 @@ const layout = ({ children }) => {
       <Banner />
       <Filters />
       {children}
-      <PaginationControls />
     </>
   );
 };
