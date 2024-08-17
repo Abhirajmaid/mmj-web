@@ -10,7 +10,7 @@ const ProductImages = ({ images }) => {
     <div className="w-[550px] h-auto">
       <div className="w-full h-auto">
         <Image
-          src={images[index]}
+          src={images[index]?.attributes?.url}
           alt="MMJ"
           width={1500}
           height={1500}
@@ -25,7 +25,7 @@ const ProductImages = ({ images }) => {
             onClick={() => setIndex(i)}
           >
             <Image
-              src={item}
+              src={item?.attributes?.url}
               alt="MMJ"
               width={500}
               height={500}

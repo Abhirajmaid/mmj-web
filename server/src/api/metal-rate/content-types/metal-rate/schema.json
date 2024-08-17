@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "metal_rates",
+  "info": {
+    "singularName": "metal-rate",
+    "pluralName": "metal-rates",
+    "displayName": "Metal Rate"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "metal": {
+      "type": "string"
+    },
+    "purity": {
+      "type": "enumeration",
+      "enum": [
+        "KT24",
+        "KT22",
+        "KT18",
+        "KT12"
+      ]
+    }
+  }
+}

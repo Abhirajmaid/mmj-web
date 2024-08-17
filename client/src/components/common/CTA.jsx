@@ -28,7 +28,7 @@ const CTA = () => {
         width={500}
         height={500}
         alt="MMJ"
-        className="absolute right-0 -top-[142px]"
+        className="absolute right-0 -top-[153px] w-auto h-auto"
       />
     </div>
   );

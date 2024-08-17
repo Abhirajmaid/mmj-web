@@ -138,8 +138,8 @@ export const navLinks = [
         subLinks: [
             {
                 id: 41,
-                linkText: "Gold",
-                url: "/jewellery/bullions?product_type=gold",
+                linkText: "Fine Gold",
+                url: "/jewellery/bullions?product_type=fine_gold",
             },
             {
                 id: 42,
@@ -148,8 +148,8 @@ export const navLinks = [
             },
             {
                 id: 43,
-                linkText: "Silver",
-                url: "/jewellery/bullions?product_type=silver",
+                linkText: "Fine Silver",
+                url: "/jewellery/bullions?product_type=fine_silver",
             },
         ],
     },
@@ -176,7 +176,7 @@ export const navLinks = [
             {
                 id: 54,
                 linkText: "Pendants",
-                url: "/jewellery/jewellery_mens?product_type=Pendants",
+                url: "/jewellery/jewellery_mens?product_type=pendants",
             },
             {
                 id: 55,

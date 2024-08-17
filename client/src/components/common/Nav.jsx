@@ -2,7 +2,7 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import React from "react";
-import { navLinks } from "../../data/navLinks";
+import { navLinks } from "../../lib/navLinks";
 import { SingleLink } from "..";
 import Logo from "./Logo";
 import Link from "next/link";

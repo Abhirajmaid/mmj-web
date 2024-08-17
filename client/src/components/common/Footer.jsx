@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Logo from "./Logo";
-import { customerLinks, jewelleryCatLinks } from "@/src/data/navLinks";
+import { customerLinks, jewelleryCatLinks } from "@/src/lib/navLinks";
 import { SingleLink } from "..";
 
 const Footer = () => {

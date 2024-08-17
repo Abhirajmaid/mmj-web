@@ -1,0 +1,100 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jewelleries",
+  "info": {
+    "singularName": "jewellery",
+    "pluralName": "jewelleries",
+    "displayName": "Jewellery",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "product_code": {
+      "type": "string"
+    },
+    "metal_color": {
+      "type": "enumeration",
+      "enum": [
+        "Yellow",
+        "Rose",
+        "White",
+        "Temple(Polish)"
+      ]
+    },
+    "new_ins": {
+      "type": "boolean"
+    },
+    "best_sellers": {
+      "type": "boolean"
+    },
+    "weight": {
+      "type": "decimal"
+    },
+    "metal_purity": {
+      "type": "integer"
+    },
+    "making_charges": {
+      "type": "integer"
+    },
+    "tax": {
+      "type": "integer"
+    },
+    "availability": {
+      "type": "enumeration",
+      "enum": [
+        "Ready",
+        "On Order"
+      ]
+    },
+    "img": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "jewelleries"
+    },
+    "product_type": {
+      "type": "enumeration",
+      "enum": [
+        "rings",
+        "earrings",
+        "pendants",
+        "chains",
+        "bangles",
+        "necklaces",
+        "mangalsutras",
+        "nosepins",
+        "gold_kada",
+        "painjan",
+        "fine_gold",
+        "gold_vedha",
+        "fine_silver",
+        "accessories",
+        "silver_jewellery"
+      ]
+    },
+    "sku": {
+      "type": "uid",
+      "targetField": "product_code"
+    },
+    "stock_availability": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,8 +1,9 @@
 "use client";
-import { ItemList, PaginationControls } from "@/src/components";
+import { ItemList, Loader, PaginationControls } from "@/src/components";
 import { goldItems } from "@/src/data/data";
+import jewelleryAction from "@/src/lib/action/jewellery.action";
 import { useParams, useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const page = () => {
   const param = useParams();
@@ -15,24 +16,50 @@ const page = () => {
 
   const product_type = searchParams.get("product_type");
 
-  const goldItemsFiltered = goldItems.filter((item) => {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    getJewelleryList();
+  }, []);
+
+  const getJewelleryList = () => {
+    jewelleryAction.getJewellery().then((resp) => {
+      console.log(resp.data.data);
+      setData(resp.data.data);
+    });
+  };
+
+  const dataFiltered = data?.filter((item) => {
     if (product_type) {
+      console.log(item);
+
       return (
-        item.categtory === param.category && item.product_type === product_type
+        item?.attributes?.categories?.data[0]?.attributes?.category ===
+          param.category && item?.attributes?.product_type === product_type
       );
-    } else return item.categtory === param.category;
-  }); // DATA FROM API
+    } else
+      return (
+        item?.attributes?.categories?.data[0]?.attributes?.category ===
+        param.category
+      );
+  });
 
-  const data = goldItemsFiltered.slice(start, end);
+  const dataSliced = dataFiltered?.slice(start, end);
 
-  if (data.status === 404) {
-    notFound();
-  }
+  console.log("filter", dataFiltered);
+
+  console.log("haa", dataSliced);
 
   return (
     <>
-      <ItemList data={data} />
-      <PaginationControls count={goldItemsFiltered.length} />
+      {data ? (
+        <>
+          <ItemList data={dataSliced} />
+          <PaginationControls count={data?.length} />
+        </>
+      ) : (
+        <Loader />
+      )}
     </>
   );
 };

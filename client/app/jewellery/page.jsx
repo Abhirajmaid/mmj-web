@@ -1,8 +1,8 @@
 "use client";
-import { ItemList, PaginationControls } from "@/src/components";
-import { goldItems } from "@/src/data/data";
+import { ItemList, Loader, PaginationControls } from "@/src/components";
+import jewelleryAction from "@/src/lib/action/jewellery.action";
 import { useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const page = () => {
   const searchParams = useSearchParams();
@@ -12,12 +12,31 @@ const page = () => {
   const start = (Number(page) - 1) * Number(per_page);
   const end = start + Number(per_page);
 
-  const data = goldItems.slice(start, end);
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    getJewelleryList();
+  }, []);
+
+  const getJewelleryList = () => {
+    jewelleryAction.getJewellery().then((resp) => {
+      console.log(resp.data.data);
+      setData(resp.data.data);
+    });
+  };
+
+  const dataSliced = data?.slice(start, end);
 
   return (
     <>
-      <ItemList data={data} />
-      <PaginationControls count={goldItems.length} />
+      {data ? (
+        <>
+          <ItemList data={dataSliced} />
+          <PaginationControls count={data?.length} />
+        </>
+      ) : (
+        <Loader />
+      )}
     </>
   );
 };

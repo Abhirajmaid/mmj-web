@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { goldItems, productData } from "@/src/data/data";
 import ProductCard from "../common/ProductCard";
 // Import Swiper React components
@@ -12,9 +12,24 @@ import "swiper/css/free-mode";
 // import required modules
 import { FreeMode, Keyboard, Mousewheel, Autoplay } from "swiper/modules";
 import { Icon } from "@iconify/react";
+import jewelleryAction from "@/src/lib/action/jewellery.action";
 
 const FeaturedSec = () => {
   const [feature, setFeature] = useState("newIns");
+
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    getJewelleryList();
+  }, []);
+
+  const getJewelleryList = () => {
+    jewelleryAction.getJewellery().then((resp) => {
+      console.log("hmm", resp.data.data);
+      setData(resp.data.data);
+    });
+  };
+
   return (
     <section className="mt-[60px] mb-[30px]">
       <div className="flex gap-[10px] w-full justify-center items-center text-black">
@@ -56,9 +71,9 @@ const FeaturedSec = () => {
           }}
           className="mySwiper h-auto w-[80%] !overflow-visible "
         >
-          {goldItems
-            .filter((item) => {
-              return item.feature == feature;
+          {data
+            ?.filter((item) => {
+              return item?.attributes?.best_sellers == true;
             })
             .map((item, key) => {
               return (
@@ -66,7 +81,7 @@ const FeaturedSec = () => {
                   className="flex items-center justify-center w-[280px] h-auto"
                   key={key}
                 >
-                  <ProductCard {...item} />
+                  <ProductCard item={item} />
                 </SwiperSlide>
               );
             })}
