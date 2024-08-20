@@ -42,7 +42,7 @@ const FeaturedSec = () => {
           onClick={() => setFeature("newIns")}
         >
           New Ins
-          <span className="w-[20%] h-[2px] bg-secondary mt-1"></span>
+          <span className="w-[20%] h-[2px] bg-accent mt-1"></span>
         </h1>
         <Icon icon="ph:line-vertical" height={40} width={50} />
         <h1
@@ -54,7 +54,7 @@ const FeaturedSec = () => {
           onClick={() => setFeature("bestSeller")}
         >
           Best Seller
-          <span className="w-[20%] h-[2px] bg-secondary mt-1"></span>
+          <span className="w-[20%] h-[2px] bg-accent mt-1"></span>
         </h1>
       </div>
       <div className="w-full overflow-hidden my-[30px]">

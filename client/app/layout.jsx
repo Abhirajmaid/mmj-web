@@ -1,23 +1,9 @@
-import { Open_Sans } from "next/font/google";
-import "./globals.css";
-import { Footer, Nav } from "@/src/components";
-
-const open_sans = Open_Sans({ subsets: ["latin"] });
-
-export const metadata = {
-  title: "M M Jewellers",
-  description: "Mukund Maid Jewellers",
-};
+import React from "react";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={open_sans.className}>
-        <Nav />
-        <div className="mt-[137px]" />
-        {children}
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
