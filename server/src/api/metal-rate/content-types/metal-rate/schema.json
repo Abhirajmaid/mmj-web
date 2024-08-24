@@ -4,7 +4,8 @@
   "info": {
     "singularName": "metal-rate",
     "pluralName": "metal-rates",
-    "displayName": "Metal Rate"
+    "displayName": "Metal Rate",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,12 @@
         "KT18",
         "KT12"
       ]
+    },
+    "rate": {
+      "type": "biginteger"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }

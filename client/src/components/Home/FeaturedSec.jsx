@@ -25,7 +25,7 @@ const FeaturedSec = () => {
 
   const getJewelleryList = () => {
     jewelleryAction.getJewellery().then((resp) => {
-      console.log("hmm", resp.data.data);
+      // console.log("hmm", resp.data.data);
       setData(resp.data.data);
     });
   };

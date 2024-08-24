@@ -6,7 +6,7 @@ import { SingleLink } from "..";
 
 const Footer = () => {
   return (
-    <footer className="relative w-full h-full pt-[45px] px-[130px] bg-sec/50 overflow-hidden">
+    <footer className="relative w-full h-full pt-[45px] px-[130px] bg-[#e9b020]/50 overflow-hidden">
       <Image
         src="/footer_bg.png"
         width={400}

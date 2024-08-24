@@ -930,6 +930,7 @@ export interface ApiMetalRateMetalRate extends Schema.CollectionType {
     singularName: 'metal-rate';
     pluralName: 'metal-rates';
     displayName: 'Metal Rate';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -937,6 +938,8 @@ export interface ApiMetalRateMetalRate extends Schema.CollectionType {
   attributes: {
     metal: Attribute.String;
     purity: Attribute.Enumeration<['KT24', 'KT22', 'KT18', 'KT12']>;
+    rate: Attribute.BigInteger;
+    name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

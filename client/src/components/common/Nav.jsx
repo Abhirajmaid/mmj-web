@@ -53,11 +53,15 @@ const Nav = () => {
         <div className="flex gap-6 mr-10 text-[15px]">
           <div className="flex items-center gap-1">
             <Icon icon="line-md:account" width={20} />
-            <span>Account</span>
+            <Link href="/profile">
+              <span>Account</span>
+            </Link>
           </div>
           <div className="flex items-center gap-1">
             <Icon icon="bi:heart" width={18} />
-            <span>Favorites</span>
+            <Link href="/favorites">
+              <span>Favorites</span>
+            </Link>
           </div>
         </div>
       </div>

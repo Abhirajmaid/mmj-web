@@ -1,32 +1,33 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { AnimatePresence, motion } from "framer-motion";
+import metalRateAction from "@/src/lib/action/metalRate.action";
 
-const rates = [
-  {
-    metal: "Silver",
-    rate: "89",
-  },
-  {
-    metal: "24KT",
-    rate: "7,178",
-  },
-  {
-    metal: "22KT",
-    rate: "6,673",
-  },
-  {
-    metal: "18KT",
-    rate: "5,618",
-  },
-  {
-    metal: "14KT",
-    rate: "4,400",
-  },
-];
+// const rates = [
+//   {
+//     metal: "Silver",
+//     rate: "89",
+//   },
+//   {
+//     metal: "24KT",
+//     rate: "7,178",
+//   },
+//   {
+//     metal: "22KT",
+//     rate: "6,673",
+//   },
+//   {
+//     metal: "18KT",
+//     rate: "5,618",
+//   },
+//   {
+//     metal: "14KT",
+//     rate: "4,400",
+//   },
+// ];
 
-const RateDropDown = () => {
+const RateDropDown = ({ data }) => {
   return (
     <motion.div
       className="flex flex-col items-center bg-white text-black p-4 shadow-lg w-full border-black/30 border"
@@ -41,10 +42,14 @@ const RateDropDown = () => {
       <h3 className="text-[22px] font-light">Today's Gold Rate</h3>
       <span className="w-[80%] mt-[10px] mb-[18px] h-[1px] bg-sec"></span>
       <ul className="gap-[15px] flex flex-col w-full mb-[22px]">
-        {rates?.map((item, id) => (
+        {data?.map((item, id) => (
           <div key={id} className="flex justify-between items-center">
-            <span className="font-light text-[18px]">{item.metal}</span>
-            <span className="font-medium text-[16px]">₹{item.rate}</span>
+            <span className="font-light text-[18px]">
+              {item?.attributes?.name}
+            </span>
+            <span className="font-medium text-[16px]">
+              ₹{item?.attributes?.rate}
+            </span>
           </div>
         ))}
       </ul>
@@ -59,6 +64,19 @@ const RateDropDown = () => {
 
 export const RateLink = () => {
   const [open, setOpen] = useState(false);
+
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    getRateList();
+  }, []);
+
+  const getRateList = () => {
+    metalRateAction.getMetalRates().then((resp) => {
+      // console.log(resp.data.data);
+      setData(resp.data.data);
+    });
+  };
 
   return (
     <>
@@ -80,7 +98,7 @@ export const RateLink = () => {
               exit={{ opacity: 0, y: 15 }}
             >
               <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent " />
-              <RateDropDown />
+              <RateDropDown data={data} />
             </motion.div>
           )}
         </AnimatePresence>

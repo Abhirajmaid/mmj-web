@@ -19,7 +19,7 @@ const ProductCard = ({ item }) => {
     };
   }, []);
 
-  console.log(item);
+  // console.log(item);
 
   return (
     <Link
