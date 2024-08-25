@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 
 const page = () => {
   const searchParams = useSearchParams();
+
   const page = searchParams.get("page") ?? "1";
   const per_page = searchParams.get("per_page") ?? "12";
 
@@ -20,7 +21,7 @@ const page = () => {
 
   const getJewelleryList = () => {
     jewelleryAction.getJewellery().then((resp) => {
-      console.log(resp.data.data);
+      // console.log(resp.data.data);
       setData(resp.data.data);
     });
   };

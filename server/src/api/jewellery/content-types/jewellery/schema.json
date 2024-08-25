@@ -95,6 +95,12 @@
     },
     "stock_availability": {
       "type": "boolean"
+    },
+    "metal_rate": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::metal-rate.metal-rate",
+      "inversedBy": "jewelleries"
     }
   }
 }

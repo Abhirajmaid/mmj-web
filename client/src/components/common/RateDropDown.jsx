@@ -27,6 +27,21 @@ import metalRateAction from "@/src/lib/action/metalRate.action";
 //   },
 // ];
 
+const UpdatedAtComponent = ({ updatedAt }) => {
+  // Convert updatedAt string to a Date object
+  const date = new Date(updatedAt);
+
+  // Format the date and time
+  const formattedDate = date.toLocaleDateString(); // e.g., "8/25/2024"
+  const formattedTime = date.toLocaleTimeString(); // e.g., "12:34:56 PM"
+
+  return (
+    <p className="text-[16px] w-full text-start">
+      Updated At: <br /> {formattedDate} {formattedTime}
+    </p>
+  );
+};
+
 const RateDropDown = ({ data }) => {
   return (
     <motion.div
@@ -54,10 +69,11 @@ const RateDropDown = ({ data }) => {
         ))}
       </ul>
       <span className="w-[80%] mb-[18px] h-[1px] bg-sec"></span>
-      <p className="text-[14px] w-full text-start">
-        Updated On:
-        <br /> 28/06/2024 09:30AM
-      </p>
+      <div className="text-[14px] w-full text-start">
+        {data && (
+          <UpdatedAtComponent updatedAt={data[0]?.attributes?.updatedAt} />
+        )}
+      </div>
     </motion.div>
   );
 };

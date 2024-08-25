@@ -111,12 +111,12 @@ const JewelleryDetails = ({ data }) => {
         </div>
         <div className="flex w-[90%] gap-5 text-[15px] mb-6">
           <Link href="/" className="w-[40%]">
-            <button className="btn btn-primary w-full !rounded-none !p-4">
+            <button className="btn btn-primary hover:bg-primary hover:scale-[1.05] transition-all w-full !rounded-none !p-4">
               💛 Add to Favorite
             </button>
           </Link>
           <Link href="/" className="w-[40%]">
-            <button className="btn btn-primary w-full !rounded-none !p-4">
+            <button className="btn btn-primary hover:bg-primary hover:scale-[1.05] transition-all w-full !rounded-none !p-4">
               Buy Now
             </button>
           </Link>

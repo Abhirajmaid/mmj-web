@@ -29,6 +29,12 @@
     },
     "name": {
       "type": "string"
+    },
+    "jewelleries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::jewellery.jewellery",
+      "mappedBy": "metal_rate"
     }
   }
 }

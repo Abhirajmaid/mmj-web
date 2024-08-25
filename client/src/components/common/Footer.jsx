@@ -16,7 +16,9 @@ const Footer = () => {
       />
       <div className="flex w-full opacity-100 z-50">
         <div className="w-[25%]">
-          <Logo />
+          <div className="w-[115px] h-[100px]">
+            <Logo />
+          </div>
           <h3 className="text-[22px] flex flex-col mt-[50px]">
             Connect Us!
             <span className="w-[10%] h-[2px] bg-black"></span>

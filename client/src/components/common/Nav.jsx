@@ -35,7 +35,7 @@ const Nav = () => {
         <RateLink />
       </div>
       <div className="w-full flex justify-between bg-white text-black ">
-        <div>
+        <div className="w-[130px] h-[110px]">
           <Logo />
         </div>
         <div className="flex flex-col gap-3 w-[35%] justify-center items-center">

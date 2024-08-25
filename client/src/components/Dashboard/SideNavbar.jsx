@@ -9,6 +9,7 @@ import {
   ChevronLeft,
 } from "lucide-react";
 import { Button } from "../ui/button";
+import Logo from "../common/Logo";
 
 const SideNavbar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -37,6 +38,13 @@ const SideNavbar = () => {
         isCollapsed ? "min-w-[80px]" : "min-w-[200px]"
       }  border-r px-3 pb-10 pt-24`}
     >
+      <div
+        className={`absolute w-full ${
+          isCollapsed ? "h-[80px] p-2" : "h-[150px] p-5"
+        } left-0 top-0`}
+      >
+        <Logo />
+      </div>
       {!mobileWidth && (
         <div className="absolute right-[-20px] top-7">
           <Button

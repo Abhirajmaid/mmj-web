@@ -13,21 +13,23 @@ const page = () => {
     <>
       <div className="relative w-full md:h-[110vh] h-[150vh]">
         <Image
-          src="/contact_us.png"
+          src="/contact_us.jpg"
           width={1500}
           height={1500}
           alt="MMJ"
-          className="w-full h-full object-cover blur-[6px]"
+          className="w-full h-full object-cover blur-[6px] "
         />
         <div className="w-full h-full absolute top-0 left-0 flex justify-center items-center bg-black/50 md:px-[6%]">
           <div className="mt-14 md:w-[60%] w-[90%] md:h-[72vh] h-fit rounded-xl mx-auto flex md:flex-row flex-col items-center gap-6 bg-white overflow-hidden">
-            <Image
-              src="/contact_us.png"
-              width={1500}
-              height={1500}
-              alt="MMJ"
-              className="md:w-[40%] w-full h-full object-cover"
-            />
+            <div className="md:w-[40%] w-full h-full">
+              <Image
+                src="/contact_us.jpg"
+                width={1500}
+                height={1500}
+                alt="MMJ"
+                className="object-cover h-full w-full"
+              />
+            </div>
             <form
               className="flex flex-col md:w-[60%] w-full p-8 px-6  gap-6 mx-auto"
               // onSubmit={handleSubmit}

@@ -906,6 +906,11 @@ export interface ApiJewelleryJewellery extends Schema.CollectionType {
     >;
     sku: Attribute.UID<'api::jewellery.jewellery', 'product_code'>;
     stock_availability: Attribute.Boolean;
+    metal_rate: Attribute.Relation<
+      'api::jewellery.jewellery',
+      'manyToOne',
+      'api::metal-rate.metal-rate'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -940,6 +945,11 @@ export interface ApiMetalRateMetalRate extends Schema.CollectionType {
     purity: Attribute.Enumeration<['KT24', 'KT22', 'KT18', 'KT12']>;
     rate: Attribute.BigInteger;
     name: Attribute.String;
+    jewelleries: Attribute.Relation<
+      'api::metal-rate.metal-rate',
+      'oneToMany',
+      'api::jewellery.jewellery'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
