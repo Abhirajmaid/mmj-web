@@ -1,17 +1,33 @@
 "use client";
 import { Icon } from "@iconify/react";
-import Image from "next/image";
 import React from "react";
 import { navLinks } from "../../lib/navLinks";
 import { SingleLink } from "..";
 import Logo from "./Logo";
 import Link from "next/link";
 import { RateLink } from "./RateDropDown";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/src/components/ui/dropdown-menu";
 
 const Nav = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const isActive = (href) => pathname == href;
+
+  const isLogin = sessionStorage?.getItem("jwt") ? true : false;
+
+  const onSignOut = () => {
+    sessionStorage.clear();
+    router.push("/sign-in");
+  };
+
   return (
     <nav className="w-full fixed z-50 top-0 left-0">
       <div className="w-full px-10 py-1 flex justify-between items-center text-[13px] bg-primary text-txt_light">
@@ -50,16 +66,42 @@ const Nav = () => {
             ))}
           </ul>
         </div>
-        <div className="flex gap-6 mr-10 text-[15px]">
-          <div className="flex items-center gap-1">
-            <Icon icon="line-md:account" width={20} />
-            <Link href="/profile">
-              <span>Account</span>
+        <div className="flex items-center gap-6 mr-10 text-[15px]">
+          {isLogin ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <div className="flex items-center gap-1 cursor-pointer font-semibold">
+                  <Icon icon="material-symbols:person-outline" width={26} />
+                  <span>Account</span>
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[150px]">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <Link href="/profile">Profile</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/favorites">My Favorites</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => onSignOut()}>
+                  Log Out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <Link href={"/sign-in"}>
+              <button className="flex items-center gap-2 bg-primary w-full text-white p-3 px-4 capitalize cursor-pointer">
+                Log In
+              </button>
             </Link>
-          </div>
-          <div className="flex items-center gap-1">
-            <Icon icon="bi:heart" width={18} />
-            <Link href="/favorites">
+          )}
+          <div>
+            <Link
+              href="/favorites"
+              className="flex items-center gap-1 font-semibold"
+            >
+              <Icon icon="mdi:heart-outline" width={25} />
               <span>Favorites</span>
             </Link>
           </div>

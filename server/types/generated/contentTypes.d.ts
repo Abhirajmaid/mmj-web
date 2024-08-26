@@ -742,7 +742,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -771,6 +770,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    mobile_number: Attribute.String & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -968,6 +968,36 @@ export interface ApiMetalRateMetalRate extends Schema.CollectionType {
   };
 }
 
+export interface ApiMobileNumberMobileNumber extends Schema.CollectionType {
+  collectionName: 'mobile_numbers';
+  info: {
+    singularName: 'mobile-number';
+    pluralName: 'mobile-numbers';
+    displayName: 'Mobile Number';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    mobile_number: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mobile-number.mobile-number',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mobile-number.mobile-number',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -990,6 +1020,7 @@ declare module '@strapi/types' {
       'api::hero-slide.hero-slide': ApiHeroSlideHeroSlide;
       'api::jewellery.jewellery': ApiJewelleryJewellery;
       'api::metal-rate.metal-rate': ApiMetalRateMetalRate;
+      'api::mobile-number.mobile-number': ApiMobileNumberMobileNumber;
     }
   }
 }

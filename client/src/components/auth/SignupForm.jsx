@@ -13,12 +13,14 @@ import {
   FormLabel,
   FormMessage,
 } from "@/src/components/ui/form";
-import { Input } from "@/src/components/ui/input";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import userAction from "@/src/lib/action/user.action";
+import { Toast } from "@/src/context/ToastContext";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
-  name: z
+  username: z
     .string()
     .min(1, { message: "Name is required" })
     .max(100, { message: "Name must be less than 100 characters" }),
@@ -28,26 +30,74 @@ const formSchema = z.object({
     .min(1, { message: "Email is required" })
     .email({ message: "Invalid email address" }),
 
-  mobileNumber: z
+  mobile_number: z
     .string()
     .min(10, { message: "Mobile number must be at least 10 digits" })
     .max(15, { message: "Mobile number must be less than 15 digits" })
     .regex(/^[0-9]+$/, { message: "Mobile number can only contain digits" }),
+
+  password: z
+    .string()
+    .min(6, { message: "Password must be at least 6 characters long" })
+    .max(15, { message: "Password must be no more than 15 characters long" }),
 });
 
 const SignupForm = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const router = useRouter();
+
+  const { success, error, warn } = Toast();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      username: "",
       email: "",
-      mobileNumber: "",
+      mobile_number: "",
+      password: "user1234",
     },
   });
 
+  useEffect(() => {
+    const jwt = sessionStorage.getItem("jwt");
+    if (jwt) {
+      router.push("/");
+    }
+  }, []);
+
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
+  const handleCatalogueSubscribe = (values) => {
+    userAction
+      .postSubscriber(values)
+      .then()
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   function onSubmit(values) {
-    // updateMetalRateList();
-    console.log(values);
+    if (isChecked) {
+      handleCatalogueSubscribe(values);
+      userAction
+        .registerUser(values)
+        .then((resp) => {
+          sessionStorage.setItem("user", JSON.stringify(resp.data.user));
+          sessionStorage.setItem("jwt", JSON.stringify(resp.data.jwt));
+          success("You are Successfuly Signup");
+          router.push("/");
+        })
+        .catch((e) => {
+          console.log(e);
+          warn("Server Error!");
+          error(e?.response?.data?.error?.message);
+        });
+    } else {
+      warn("Agree to Terms and Conditions!");
+    }
   }
 
   return (
@@ -56,7 +106,7 @@ const SignupForm = () => {
         {/* Left Image Section */}
         <div className="w-[55%] min-h-full">
           <Image
-            src="/contact_us.jpg" // Make sure to place the image in the public directory
+            src="/contact_us.jpg"
             alt="Jewellery Model"
             className="object-cover w-full min-h-full"
             width={1500}
@@ -77,7 +127,7 @@ const SignupForm = () => {
             >
               <FormField
                 control={form.control}
-                name="name"
+                name="username"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>First and Last Name*</FormLabel>
@@ -96,7 +146,6 @@ const SignupForm = () => {
                   </FormItem>
                 )}
               />
-
               <FormField
                 control={form.control}
                 name="email"
@@ -118,13 +167,13 @@ const SignupForm = () => {
               />
               <FormField
                 control={form.control}
-                name="mobileNumber"
+                name="mobile_number"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Mobile Number (WhatsApp) *</FormLabel>
                     <FormControl>
                       <input
-                        type="number"
+                        type="text"
                         placeholder="+91 7385302967"
                         {...field}
                         className="w-full px-4 !py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
@@ -143,6 +192,8 @@ const SignupForm = () => {
                     type="checkbox"
                     id="terms"
                     className="mr-2 rounded text-primary focus:ring-primary"
+                    checked={isChecked}
+                    onChange={handleCheckboxChange}
                   />
                   <label htmlFor="terms" className="text-gray-600">
                     Agree to our
@@ -164,26 +215,15 @@ const SignupForm = () => {
                     className="mr-2 rounded text-primary focus:ring-primary"
                   />
                   <label htmlFor="newsletter" className="text-gray-600">
-                    Subscribe to our monthly newsletter
+                    Subscribe to our new design catalogue
                   </label>
                 </div>
               </div>
-
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id="captcha"
-                  className="mr-2 rounded text-primary focus:ring-primary"
-                />
-                <label htmlFor="captcha" className="text-gray-600">
-                  I'm not a robot
-                </label>
-              </div>
-
               <Button
                 type="submit"
                 variant="primary"
-                className="w-[30%] bg-primary text-white py-6 rounded-lg hover:bg-primary-dark transition"
+                disabled={loader ? true : false}
+                className={`w-[30%] bg-primary text-white py-6 rounded-lg hover:bg-primary-dark transition`}
               >
                 Sign up
               </Button>

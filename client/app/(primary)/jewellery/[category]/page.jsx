@@ -23,10 +23,15 @@ const page = () => {
   }, []);
 
   const getJewelleryList = () => {
-    jewelleryAction.getJewellery().then((resp) => {
-      // console.log(resp.data.data);
-      setData(resp.data.data);
-    });
+    jewelleryAction
+      .getJewellery()
+      .then((resp) => {
+        // console.log(resp.data.data);
+        setData(resp.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const dataFiltered = data?.filter((item) => {

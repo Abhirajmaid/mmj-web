@@ -19,8 +19,8 @@ const Footer = () => {
           <div className="w-[115px] h-[100px]">
             <Logo />
           </div>
-          <h3 className="text-[22px] flex flex-col mt-[50px]">
-            Connect Us!
+          <h3 className="text-[22px] flex flex-col mt-[30px]">
+            Connect With Us!
             <span className="w-[10%] h-[2px] bg-black"></span>
           </h3>
         </div>

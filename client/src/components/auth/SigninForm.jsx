@@ -7,35 +7,75 @@ import { Button } from "@/src/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/src/components/ui/form";
-import { Input } from "@/src/components/ui/input";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import userAction from "@/src/lib/action/user.action";
+import { Toast } from "@/src/context/ToastContext";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
-  mobileNumber: z
+  email: z
+    .string()
+    .min(1, { message: "Email is required" })
+    .email({ message: "Invalid email address" }),
+
+  mobile_number: z
     .string()
     .min(10, { message: "Mobile number must be at least 10 digits" })
     .max(15, { message: "Mobile number must be less than 15 digits" })
     .regex(/^[0-9]+$/, { message: "Mobile number can only contain digits" }),
+
+  password: z
+    .string()
+    .min(6, { message: "Password must be at least 6 characters long" })
+    .max(15, { message: "Password must be no more than 15 characters long" }),
 });
 
 const SigninForm = () => {
+  const [loader, setLoader] = useState(false);
+
+  const router = useRouter();
+
+  const { success, error, warn } = Toast();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      mobileNumber: "",
+      email: "",
+      mobile_number: "",
+      password: "user1234",
     },
   });
 
+  useEffect(() => {
+    const jwt = sessionStorage.getItem("jwt");
+    if (jwt) {
+      router.push("/");
+    }
+  }, []);
+
   function onSubmit(values) {
-    // updateMetalRateList();
-    console.log(values);
+    setLoader(true);
+    userAction
+      .signIn(values)
+      .then((resp) => {
+        sessionStorage.setItem("user", JSON.stringify(resp.data.user));
+        sessionStorage.setItem("jwt", JSON.stringify(resp.data.jwt));
+        success("You are Successfuly Log In");
+        router.push("/");
+        setLoader(false);
+      })
+      .catch((e) => {
+        console.log(e);
+        warn("Server Error");
+        error(e?.response?.data?.error?.message);
+        setLoader(false);
+      });
   }
 
   return (
@@ -44,7 +84,7 @@ const SigninForm = () => {
         {/* Left Image Section */}
         <div className="w-[55%] min-h-full">
           <Image
-            src="/contact_us.jpg" // Make sure to place the image in the public directory
+            src="/contact_us.jpg"
             alt="Jewellery Model"
             className="object-cover w-full min-h-full"
             width={1500}
@@ -63,13 +103,31 @@ const SigninForm = () => {
             >
               <FormField
                 control={form.control}
-                name="mobileNumber"
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email Address*</FormLabel>
+                    <FormControl>
+                      <input
+                        type="email"
+                        placeholder="jhondoe@gmail.com"
+                        {...field}
+                        className="w-full px-4 !py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="mobile_number"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Mobile Number (WhatsApp) *</FormLabel>
                     <FormControl>
                       <input
-                        type="number"
+                        type="text"
                         placeholder="+91 7385302967"
                         {...field}
                         className="w-full px-4 !py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
@@ -79,14 +137,16 @@ const SigninForm = () => {
                   </FormItem>
                 )}
               />
-              <Button
-                type="submit"
-                variant="primary"
-                className="w-[30%] bg-primary text-white py-6 rounded-lg hover:bg-primary-dark transition "
-              >
-                Log In
-              </Button>
-
+              {
+                <Button
+                  type="submit"
+                  variant="primary"
+                  disabled={loader ? true : false}
+                  className={`w-[30%] bg-primary text-white py-6 rounded-lg transition hover:bg-primary`}
+                >
+                  Log In
+                </Button>
+              }
               <p className="text-start text-gray-600">
                 Dodn't have an account?{" "}
                 <Link href="/sign-up" className="text-primary">

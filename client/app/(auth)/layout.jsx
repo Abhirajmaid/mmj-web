@@ -1,4 +1,4 @@
-import { Footer, Nav } from "@/src/components";
+import { Nav } from "@/src/components";
 
 export default function Layout({ children }) {
   return (

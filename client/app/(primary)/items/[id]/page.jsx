@@ -22,10 +22,15 @@ const page = () => {
   }, []);
 
   const getJewelleryDetails = () => {
-    jewelleryAction.getJewelleryByProductCode(param.id).then((resp) => {
-      console.log(param.id, resp.data.data);
-      setData(resp.data.data);
-    });
+    jewelleryAction
+      .getJewelleryByProductCode(param.id)
+      .then((resp) => {
+        console.log(param.id, resp.data.data);
+        setData(resp.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

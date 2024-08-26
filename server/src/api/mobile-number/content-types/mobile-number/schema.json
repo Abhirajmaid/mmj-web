@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mobile_numbers",
+  "info": {
+    "singularName": "mobile-number",
+    "pluralName": "mobile-numbers",
+    "displayName": "Mobile Number"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mobile_number": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}
