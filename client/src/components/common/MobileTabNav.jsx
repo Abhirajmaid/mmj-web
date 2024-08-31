@@ -20,7 +20,7 @@ const MobileTabNav = () => {
       name: "Gallery",
       icon: "lucide:gallery-horizontal-end",
       id: "/gallery",
-      url: "/favorites",
+      url: "/gallery",
     },
     {
       name: "Favorites",
