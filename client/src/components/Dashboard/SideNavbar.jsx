@@ -32,7 +32,6 @@ const SideNavbar = ({ links }) => {
         isCollapsed ? "min-w-[80px]" : "min-w-[200px]"
       }  border-r px-3 pb-10 bg-white`}
     >
-      {console.log(windowWidth)}
       {!mobileWidth && (
         <div className="absolute right-[-20px] top-7">
           <Button

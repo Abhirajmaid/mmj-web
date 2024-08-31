@@ -42,11 +42,11 @@ const page = () => {
       ) : (
         <Loader />
       )}
-      {/* <Divider />
+      <Divider />
       <SectionTitle title="You May Like This" txtColor="black" />
       <Divider />
       <FeaturedSec />
-      <CTA /> */}
+      <CTA />
     </div>
   );
 };

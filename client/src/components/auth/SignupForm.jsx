@@ -71,7 +71,7 @@ const SignupForm = () => {
     setIsChecked(event.target.checked);
   };
 
-  const handleCatalogueSubscribe = (values) => {
+  const handleSubscribe = (values) => {
     userAction
       .postSubscriber(values)
       .then()
@@ -83,7 +83,7 @@ const SignupForm = () => {
   function onSubmit(values) {
     setLoader(true);
     if (isChecked) {
-      handleCatalogueSubscribe(values);
+      handleSubscribe(values);
       userAction
         .registerUser(values)
         .then((resp) => {

@@ -28,7 +28,7 @@ const Slide = ({ img }) => {
 
 const Banner = () => {
   return (
-    <section className="w-full max-h-[40vh] overflow-hidden">
+    <section className="hidden md:block w-full max-h-[40vh] overflow-hidden">
       <Swiper
         pagination={{
           dynamicBullets: true,

@@ -28,7 +28,7 @@ const PaginationControls = ({ count }) => {
   };
 
   return (
-    <div className="mt-[80px] mb-[60px] flex gap-4 items-center justify-center">
+    <div className="md:mt-[80px] mt-[50px] md:mb-[60px] mb-[140px] flex gap-4 items-center justify-center">
       {page > 1 ? (
         <button
           className="btn bg-sec text-white"

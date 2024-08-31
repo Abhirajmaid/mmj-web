@@ -14,7 +14,7 @@ import {
 
 export default function Home() {
   return (
-    <page>
+    <>
       <div className="mb-[110px] md:mb-0">
         <HeroMobile />
         <Hero />
@@ -32,6 +32,6 @@ export default function Home() {
         <Divider />
         <GallerySec />
       </div>
-    </page>
+    </>
   );
 }

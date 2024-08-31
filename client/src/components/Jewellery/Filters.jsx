@@ -82,7 +82,7 @@ const Filters = () => {
   };
 
   return (
-    <div className="w-full lg:w-[75%] mx-auto px-4 py-2 z-[99]">
+    <div className="w-full lg:w-[75%] mx-auto px-4 py-2 z-[99] mt-[50px] md:mt-0">
       <div className="w-full flex flex-col lg:flex-row justify-between border-b border-[#242424] py-4 mb-6">
         <div className="flex flex-col items-start gap-4 justify-between w-full lg:w-auto">
           <h2 className="text-lg font-semibold">Jewellery (340)</h2>

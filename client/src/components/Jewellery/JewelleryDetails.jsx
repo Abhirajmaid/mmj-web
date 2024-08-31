@@ -22,7 +22,7 @@ const JewelleryDetails = ({ data }) => {
   }, [data]);
 
   return (
-    <div className="flex flex-col lg:flex-row w-full lg:w-[90%] xl:w-[1430px] mx-auto p-3 pt-[80px] gap-10">
+    <section className="flex flex-col lg:flex-row w-full lg:w-[90%] xl:w-[1430px] mx-auto p-3 pt-[80px] gap-10">
       <div className="relative w-full lg:w-[50%] flex items-end flex-col">
         <ProductImages images={data[0]?.attributes?.img?.data} />
         <div className="absolute w-[40px] h-[40px] md:w-[50px] md:h-[50px] bg-[#f5f5f5] p-[2px] flex items-center justify-center rounded-full cursor-pointer top-5 right-5">
@@ -129,7 +129,7 @@ const JewelleryDetails = ({ data }) => {
           className="w-full h-auto"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

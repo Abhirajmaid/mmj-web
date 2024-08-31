@@ -16,9 +16,9 @@ const SlideCard = ({ img, title }) => {
         <Image
           src={img}
           alt="Slide Image"
-          layout="fill"
-          objectFit="cover"
-          className="rounded-lg"
+          width={1500}
+          height={1500}
+          className="rounded-lg object-cover w-full h-full"
         />
       </div>
       <h3 className="text-lg font-semibold p-3 pl-5">{title}</h3>

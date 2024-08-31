@@ -35,6 +35,7 @@ const ProductCard = ({ item }) => {
             height={500}
             className="w-full h-full object-cover"
             alt="MMJ"
+            priority
           />
         </div>
         <div className="flex flex-col gap-1 items-start justify-center px-2 py-1 font-semibold">

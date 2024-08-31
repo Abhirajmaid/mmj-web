@@ -7,7 +7,7 @@ const ProductImages = ({ images }) => {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="w-[550px] h-auto">
+    <div className="md:w-[550px] w-full h-auto">
       <div className="w-full h-auto">
         <Image
           src={images[index]?.attributes?.url}
@@ -15,6 +15,7 @@ const ProductImages = ({ images }) => {
           width={1500}
           height={1500}
           className="w-full h-[500px] object-cover border border-sec"
+          priority
         />
       </div>
       <div className="flex justify-between gap-4 mt-8 w-full">
@@ -30,6 +31,7 @@ const ProductImages = ({ images }) => {
               width={500}
               height={500}
               className="object-cover"
+              priority
             />
           </div>
         ))}
