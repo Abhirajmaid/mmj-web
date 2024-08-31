@@ -26,8 +26,15 @@ const postSubscriber = (data) => axiosClient.post('/mobile-numbers', {
     }
 })
 
+const fetchLoggedInUser = (token) => axiosClient.get('/users/me', {
+    headers: {
+        Authorization: `Bearer ${token}`,
+    },
+})
+
 export default {
     registerUser,
     signIn,
-    postSubscriber
+    postSubscriber,
+    fetchLoggedInUser
 }

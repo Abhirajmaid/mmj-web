@@ -34,3 +34,7 @@ export { default as Header } from "./Dashboard/Header"
 
 export { default as SignupForm } from "./auth/SignupForm"
 export { default as SigninForm } from "./auth/SigninForm"
+
+export { default as AboutUs } from "./About/AboutUs"
+
+export { default as Policies } from "./StaticPages/Policies"

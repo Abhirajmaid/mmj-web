@@ -1,5 +1,6 @@
 "use client";
 import { ItemList, Loader, PaginationControls } from "@/src/components";
+import { Toast } from "@/src/context/ToastContext";
 import jewelleryAction from "@/src/lib/action/jewellery.action";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -15,6 +16,8 @@ const page = () => {
 
   const [data, setData] = useState();
 
+  const { warn } = Toast();
+
   useEffect(() => {
     getJewelleryList();
   }, []);
@@ -28,6 +31,7 @@ const page = () => {
       })
       .catch((error) => {
         console.log(error);
+        warn(error);
       });
   };
 
