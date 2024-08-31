@@ -19,7 +19,7 @@ const GallerySec = () => {
 
   return (
     <section className="w-full">
-      <div className="w-full h-[700px] grid columns-4 grid-rows-2 grid-flow-col gap-1 bg-black">
+      <div className="hidden w-full h-[700px] md:grid columns-4 grid-rows-2 grid-flow-col gap-1 bg-black">
         <div className=" row-span-1 bg-black overflow-hidden">
           <Image
             src={images[randomNumberInRange()]}

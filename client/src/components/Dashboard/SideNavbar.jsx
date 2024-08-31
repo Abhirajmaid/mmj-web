@@ -1,17 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Navlinks } from "..";
-import {
-  LayoutDashboard,
-  UserRound,
-  TrendingUp,
-  ChevronRight,
-  ChevronLeft,
-} from "lucide-react";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 import { Button } from "../ui/button";
 import Logo from "../common/Logo";
 
-const SideNavbar = () => {
+const SideNavbar = ({ links }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
 
@@ -36,15 +30,9 @@ const SideNavbar = () => {
     <div
       className={`relative ${
         isCollapsed ? "min-w-[80px]" : "min-w-[200px]"
-      }  border-r px-3 pb-10 pt-24`}
+      }  border-r px-3 pb-10 bg-white`}
     >
-      <div
-        className={`absolute w-full ${
-          isCollapsed ? "h-[80px] p-2" : "h-[150px] p-5"
-        } left-0 top-0`}
-      >
-        <Logo />
-      </div>
+      {console.log(windowWidth)}
       {!mobileWidth && (
         <div className="absolute right-[-20px] top-7">
           <Button
@@ -56,27 +44,7 @@ const SideNavbar = () => {
           </Button>
         </div>
       )}
-      <Navlinks
-        isCollapsed={mobileWidth ? true : isCollapsed}
-        links={[
-          {
-            title: "Overview",
-            icon: LayoutDashboard,
-            href: "/dashboard/overview",
-          },
-          {
-            title: "Metal Rate",
-            icon: TrendingUp,
-
-            href: "/dashboard/metal-rates",
-          },
-          {
-            title: "Profile",
-            icon: UserRound,
-            href: "/dashboard/profile",
-          },
-        ]}
-      />
+      <Navlinks isCollapsed={mobileWidth ? true : isCollapsed} links={links} />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import ProductCard from "../common/ProductCard";
 const ItemList = ({ data }) => {
   return (
     <>
-      <div className="flex flex-wrap gap-6 items-center w-[1425px] mx-auto px-[16px]">
+      <div className="flex flex-wrap gap-6 items-center justify-center w-full md:w-[1425px] mx-auto md:px-4 px-4 ">
         {data?.map((item, id) => {
           return (
             <div key={id} className="w-[330px]">

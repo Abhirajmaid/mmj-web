@@ -24,7 +24,7 @@ const ProductCard = ({ item }) => {
   return (
     <Link
       href={`/items/${item?.attributes?.product_code}`}
-      className="cursor-pointer"
+      className="cursor-pointer w-full"
     >
       <div className="relative w-full h-auto hover:bg-secondary_light flex flex-col overflow-hidden border-[0.7px] border-[#424242]/30 rounded-lg">
         <div className="w-full h-[280px]">

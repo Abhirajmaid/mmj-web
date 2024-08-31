@@ -82,11 +82,11 @@ const Filters = () => {
   };
 
   return (
-    <div className="w-[75%] mx-auto px-4 py-2 z-[99]">
-      <div className="w-full flex justify-between border-b border-[#242424] py-4 mb-6">
-        <div className="flex flex-col items-start gap-4 justify-between ">
+    <div className="w-full lg:w-[75%] mx-auto px-4 py-2 z-[99]">
+      <div className="w-full flex flex-col lg:flex-row justify-between border-b border-[#242424] py-4 mb-6">
+        <div className="flex flex-col items-start gap-4 justify-between w-full lg:w-auto">
           <h2 className="text-lg font-semibold">Jewellery (340)</h2>
-          <div className="flex space-x-6">
+          <div className="flex flex-wrap gap-4 lg:gap-6">
             {Object.keys(filterOptions).map((filter) => (
               <div className="relative" key={filter}>
                 <button
@@ -132,7 +132,7 @@ const Filters = () => {
         </div>
         <button
           onClick={applyFilters}
-          className="px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg"
+          className="mt-4 lg:mt-0 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg"
         >
           Apply Filters
         </button>

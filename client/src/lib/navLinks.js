@@ -1,3 +1,5 @@
+import { LayoutDashboard, UserRound, TrendingUp, UsersRound } from "lucide-react";
+
 export const navLinks = [
     {
         id: 1,
@@ -256,5 +258,42 @@ export const jewelleryCatLinks = [
         id: 5,
         linkText: "Mens Jewellery",
         url: "/jewellery/jewellery_mens",
+    },
+];
+
+export const adminNavLinks = [
+    {
+        title: "Overview",
+        icon: "lucide:layout-dashboard",
+        href: "/dashboard",
+    },
+    {
+        title: "Metal Rate",
+        icon: "lucide:trending-up",
+
+        href: "/dashboard/metal-rates",
+    },
+    {
+        title: "Users",
+        icon: "lucide:users-round",
+        href: "/dashboard/users",
+    },
+];
+
+export const userAccLinks = [
+    {
+        title: "Profile",
+        icon: "lucide:user-round",
+        href: "/profile",
+    },
+    {
+        title: "Favorites",
+        icon: "lucide:heart",
+        href: "/profile/favorites",
+    },
+    {
+        title: "Contact Us",
+        icon: "lucide:phone",
+        href: "/contact-us",
     },
 ];

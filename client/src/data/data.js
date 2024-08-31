@@ -1,17 +1,21 @@
 export const heroSlides = [
     {
+        title: "Antelope Canyon Tour",
         img: '/hero.png',
         url: '/'
     },
     {
+        title: "Antelope Canyon Tour",
         img: '/hero.png',
         url: '/'
     },
     {
+        title: "Antelope Canyon Tour",
         img: '/hero.png',
         url: '/'
     },
     {
+        title: "Antelope Canyon Tour",
         img: '/hero.png',
         url: '/'
     }

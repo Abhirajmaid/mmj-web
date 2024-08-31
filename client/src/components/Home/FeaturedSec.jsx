@@ -19,13 +19,23 @@ const FeaturedSec = () => {
 
   const [data, setData] = useState();
 
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", () => {
+      setWindowWidth(window.innerWidth);
+    });
+  }, []);
+
+  const mobileWidth = windowWidth < 768;
+
   useEffect(() => {
     getJewelleryList();
   }, []);
 
   const getJewelleryList = () => {
     jewelleryAction.getJewellery().then((resp) => {
-      // console.log("hmm", resp.data.data);
       setData(resp.data.data);
     });
   };
@@ -34,7 +44,7 @@ const FeaturedSec = () => {
     <section className="mt-[60px] mb-[30px]">
       <div className="flex gap-[10px] w-full justify-center items-center text-black">
         <h1
-          className={`text-[32px] flex flex-col cursor-pointer ${
+          className={`md:text-[32px] text-[24px] flex flex-col cursor-pointer ${
             feature == "bestSeller"
               ? "text-black/40"
               : "text-black border-b-2 border-sec"
@@ -46,7 +56,7 @@ const FeaturedSec = () => {
         </h1>
         <Icon icon="ph:line-vertical" height={40} width={50} />
         <h1
-          className={`text-[32px] flex flex-col cursor-pointer ${
+          className={`md:text-[32px] text-[24px] flex flex-col cursor-pointer ${
             feature == "newIns"
               ? "text-black/40"
               : "text-black border-b-2 border-sec"
@@ -59,7 +69,7 @@ const FeaturedSec = () => {
       </div>
       <div className="w-full overflow-hidden my-[30px]">
         <Swiper
-          slidesPerView={5}
+          slidesPerView={mobileWidth ? 1 : 5}
           spaceBetween={10}
           freeMode={false}
           modules={[FreeMode, Keyboard, Mousewheel, Autoplay]}

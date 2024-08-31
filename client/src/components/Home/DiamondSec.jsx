@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const DiamondSec = () => {
   return (
-    <section className="w-[80%] mx-auto">
+    <section className="md:w-[80%] w-[90%] mx-auto">
       <div>
         <SectionTitle
           title="Diamond"
@@ -13,10 +13,10 @@ const DiamondSec = () => {
           txtColor="black"
         />
       </div>
-      <div className="grid grid-cols-3 grid-rows-2 grid-flow-col gap-4 h-[650px] mt-[30px]">
+      <div className="grid grid-cols-3 md:grid-rows-2 grid-rows-5 md:grid-flow-col grid-flow-row gap-4 md:h-[650px] h-[900px] mt-[30px]">
         <Link
           href="/jewellery/diamond?product_type=rings"
-          className=" row-span-1 bg-black rounded-lg overflow-hidden"
+          className="md:row-span-1 col-span-3 bg-black rounded-lg overflow-hidden"
         >
           <Image
             src="/1.png"
@@ -28,7 +28,7 @@ const DiamondSec = () => {
         </Link>
         <Link
           href="/jewellery/diamond?product_type=bangles"
-          className=" row-span-1 bg-black rounded-lg overflow-hidden"
+          className="md:row-span-1 col-span-3 bg-black rounded-lg overflow-hidden"
         >
           <Image
             src="/2.png"
@@ -40,7 +40,7 @@ const DiamondSec = () => {
         </Link>
         <Link
           href="/jewellery/diamond"
-          className=" row-span-2 bg-black rounded-lg overflow-hidden"
+          className="md:row-span-2 col-span-3 bg-black rounded-lg overflow-hidden"
         >
           <Image
             src="/3.png"
@@ -52,7 +52,7 @@ const DiamondSec = () => {
         </Link>
         <Link
           href="/jewellery/diamond?product_type=earrings"
-          className=" row-span-1 bg-black rounded-lg overflow-hidden"
+          className="md:row-span-1 col-span-3 bg-black rounded-lg overflow-hidden"
         >
           <Image
             src="/4.png"
@@ -64,7 +64,7 @@ const DiamondSec = () => {
         </Link>
         <Link
           href="/jewellery/diamond?product_type=mangalsutras"
-          className=" row-span-1 bg-black rounded-lg overflow-hidden"
+          className="md:row-span-1 col-span-3 bg-black rounded-lg overflow-hidden"
         >
           <Image
             src="/5.png"

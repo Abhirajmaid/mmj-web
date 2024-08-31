@@ -3,19 +3,22 @@ import {
   DiamondSec,
   Divider,
   FeaturedSec,
-  Footer,
   GallerySec,
   Hero,
+  HeroMobile,
   MensSec,
   PromisesSec,
   StoreLocationSec,
+  StoryCarousel,
 } from "@/src/components";
 
 export default function Home() {
   return (
     <page>
-      <div>
+      <div className="mb-[110px] md:mb-0">
+        <HeroMobile />
         <Hero />
+        <StoryCarousel />
         <CategorySec />
         <Divider />
         <PromisesSec />

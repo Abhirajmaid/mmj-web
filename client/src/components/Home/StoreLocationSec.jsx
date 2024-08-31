@@ -6,27 +6,27 @@ const StoreLocationSec = () => {
   return (
     <section
       id="storeLocation"
-      className="w-full flex gap-[60px] items-center justify-center bg-primary text-white"
+      className="w-full flex md:flex-row flex-col md:gap-[60px] gap-[20px] items-center justify-center bg-primary text-white"
     >
       <Image
         src="/mmjstore.png"
         width={500}
         height={500}
-        className="w-[50%]"
+        className="md:w-[50%] w-full"
         alt="Mukund Maid Jewellers"
       />
-      <div className="flex flex-col justify-start gap-5">
-        <h2 className="w-full text-[32px] flex flex-col">
+      <div className="flex flex-col md:p-0 p-8 justify-start gap-5">
+        <h2 className="w-full md:text-[32px] text-[22px] flex flex-col">
           Come and Say Hi!
           <span className="w-[7%] h-[3px] bg-white"></span>
         </h2>
-        <p className="text-[18px] font-thin w-[60%]">
+        <p className="md:text-[18px] text-[14px] font-thin md:w-[60%] w-full">
           Explore iconic traditional jewellery, gold and diamond engagement
           rings, silver classics, elegant accessories, and precious gifts for
           any occasion at our MMJ store.
         </p>
         <Link href="https://maps.app.goo.gl/ttGrwNSfCm5hRny49" target="_blank">
-          <button className="bg-sec w-[20%] text-black p-3 uppercase cursor-pointer">
+          <button className="bg-sec md:w-[20%] w-auto text-black p-3 uppercase cursor-pointer">
             Store Location
           </button>
         </Link>

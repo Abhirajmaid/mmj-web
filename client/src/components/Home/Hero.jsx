@@ -16,9 +16,9 @@ const Slide = ({ img }) => {
     <div className="h-full w-full flex justify-center items-center">
       <Image
         src={img}
-        width={500}
-        height={500}
-        className="block w-full h-full object-cover"
+        width={1920}
+        height={1080}
+        className="w-full h-full object-fill"
         alt="mmj"
         priority
       />
@@ -28,7 +28,7 @@ const Slide = ({ img }) => {
 
 const Hero = () => {
   return (
-    <section className="w-full min-h-[80vh] ">
+    <section className="w-full min-h-[80vh] md:block hidden">
       <Swiper
         pagination={{
           dynamicBullets: true,
@@ -39,11 +39,11 @@ const Hero = () => {
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Pagination]}
-        className="mySwiper"
+        className="mySwiper h-full"
       >
         {heroSlides.map((item, key) => {
           return (
-            <SwiperSlide key={key}>
+            <SwiperSlide key={key} className="h-full">
               <Link href={`${item.url}`} className="w-full h-full">
                 <Slide img={item.img} />
               </Link>

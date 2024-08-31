@@ -14,9 +14,9 @@ const PromisesSec = () => {
       </div>
       <Image
         src="/promises.svg"
-        width={500}
-        height={500}
-        className="w-[85%] h-[170px]"
+        width={700}
+        height={700}
+        className="md:w-[85%] md:h-[170px] w-[100%] h-[80px]"
         alt="MMJ"
       />
     </section>

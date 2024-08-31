@@ -1,9 +1,8 @@
 "use client";
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { navLinks } from "../../lib/navLinks";
-import { SingleLink } from "..";
-import Logo from "./Logo";
+import { Logo, SingleLink } from "..";
 import Link from "next/link";
 import { RateLink } from "./RateDropDown";
 import { usePathname, useRouter } from "next/navigation";
@@ -21,7 +20,13 @@ const Nav = () => {
   const router = useRouter();
   const isActive = (href) => pathname == href;
 
-  const isLogin = sessionStorage?.getItem("jwt") ? true : false;
+  const [isLogin, setIsLogin] = useState();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsLogin(sessionStorage?.getItem("jwt") ? true : false);
+    }
+  }, []);
 
   const onSignOut = () => {
     sessionStorage.clear();
@@ -29,8 +34,8 @@ const Nav = () => {
   };
 
   return (
-    <nav className="w-full fixed z-50 top-0 left-0">
-      <div className="w-full px-10 py-1 flex justify-between items-center text-[13px] bg-primary text-txt_light">
+    <nav className="w-full fixed z-50 top-0 left-0 border-b">
+      <div className="w-full md:px-10 px-6 md:py-2 py-1 flex justify-between items-center text-[13px] bg-primary text-txt_light">
         <div className="w-[40%] flex gap-4 items-center">
           <Link
             href="https://wa.me/7385302967"
@@ -38,19 +43,19 @@ const Nav = () => {
             className="flex items-center gap-1 font-semibold"
           >
             <Icon icon="ic:sharp-whatsapp" width="20" />
-            <span>WhatsApp</span>
+            <span className="md:block hidden">WhatsApp</span>
           </Link>
           <Link
             href="#storeLocation"
             className="flex items-center gap-1 font-semibold"
           >
             <Icon icon="ic:outline-store" width="20" />
-            <span>Store Locator</span>
+            <span className="md:block hidden">Store Locator</span>
           </Link>
         </div>
         <RateLink />
       </div>
-      <div className="w-full flex justify-between bg-white text-black ">
+      <div className="w-full justify-between bg-white text-black md:flex hidden">
         <div className="w-[130px] h-[110px]">
           <Logo />
         </div>
@@ -71,7 +76,7 @@ const Nav = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <div className="flex items-center gap-1 cursor-pointer font-semibold">
-                  <Icon icon="material-symbols:person-outline" width={26} />
+                  <Icon icon="lucide:user-round" width={20} />
                   <span>Account</span>
                 </div>
               </DropdownMenuTrigger>
@@ -82,7 +87,7 @@ const Nav = () => {
                   <Link href="/profile">Profile</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href="/favorites">My Favorites</Link>
+                  <Link href="/profile/favorites">My Favorites</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => onSignOut()}>
                   Log Out
@@ -98,10 +103,10 @@ const Nav = () => {
           )}
           <div>
             <Link
-              href="/favorites"
+              href="/profile/favorites"
               className="flex items-center gap-1 font-semibold"
             >
-              <Icon icon="mdi:heart-outline" width={25} />
+              <Icon icon="lucide:heart" width={20} />
               <span>Favorites</span>
             </Link>
           </div>

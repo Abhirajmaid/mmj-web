@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { LucideIcon } from "lucide-react";
-
 import { cn } from "@/src/lib/utils";
 import { buttonVariants } from "@/src/components/ui/button";
 import {
@@ -12,6 +10,7 @@ import {
   TooltipTrigger,
 } from "@/src/components/ui/tooltip";
 import { usePathname } from "next/navigation";
+import { Icon } from "@iconify/react";
 
 const Navlinks = ({ links, isCollapsed }) => {
   const pathname = usePathname();
@@ -19,7 +18,7 @@ const Navlinks = ({ links, isCollapsed }) => {
   return (
     <div
       data-collapsed={isCollapsed}
-      className="group flex flex-col gap-4 py-2 pt-14 data-[collapsed=true]:py-2 data-[collapsed=true]:pt-4"
+      className="group flex flex-col gap-4 py-2 pt-4 data-[collapsed=true]:py-2 data-[collapsed=true]:pt-4"
     >
       <nav className="grid gap-3 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
         {links.map((link, index) =>
@@ -39,7 +38,7 @@ const Navlinks = ({ links, isCollapsed }) => {
                         "bg-primary text-muted-foreground hover:bg-primary hover:text-white text-white"
                     )}
                   >
-                    <link.icon className="h-5 w-5" />
+                    <Icon icon={link.icon} className="h-5 w-5" />
                     <span className="sr-only">{link.title}</span>
                   </Link>
                 </TooltipTrigger>
@@ -65,7 +64,7 @@ const Navlinks = ({ links, isCollapsed }) => {
                 "justify-start text-md"
               )}
             >
-              <link.icon className="mr-2 h-5 w-5" />
+              <Icon icon={link.icon} className="mr-2 h-5 w-5" />
               {link.title}
             </Link>
           )

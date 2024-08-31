@@ -3,12 +3,12 @@ import React from "react";
 
 const Divider = () => {
   return (
-    <div className="w-full h-auto my-[60px]">
+    <div className="w-full h-auto md:my-[60px] my-2">
       <Image
         src="/divider.svg"
         width={800}
-        height={200}
-        className="w-[70%] h-[80px] mx-auto"
+        height={300}
+        className="md:w-[70%] w-[90%] h-[80px] mx-auto"
         alt="MMJ divider"
       />
     </div>

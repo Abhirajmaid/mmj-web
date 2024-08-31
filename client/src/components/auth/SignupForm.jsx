@@ -44,6 +44,7 @@ const formSchema = z.object({
 
 const SignupForm = () => {
   const [isChecked, setIsChecked] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const router = useRouter();
 
@@ -80,6 +81,7 @@ const SignupForm = () => {
   };
 
   function onSubmit(values) {
+    setLoader(true);
     if (isChecked) {
       handleCatalogueSubscribe(values);
       userAction
@@ -89,11 +91,13 @@ const SignupForm = () => {
           sessionStorage.setItem("jwt", JSON.stringify(resp.data.jwt));
           success("You are Successfuly Signup");
           router.push("/");
+          setLoader(false);
         })
         .catch((e) => {
           console.log(e);
           warn("Server Error!");
           error(e?.response?.data?.error?.message);
+          setLoader(false);
         });
     } else {
       warn("Agree to Terms and Conditions!");

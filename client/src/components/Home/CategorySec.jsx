@@ -6,19 +6,19 @@ import Link from "next/link";
 
 const CategoryCard = ({ category, btnLink, detail, img }) => {
   return (
-    <div className="w-[300px] h-auto p-6 hover:bg-secondary_light flex flex-col justify-between items-center">
+    <div className="md:w-[300px] w-[170px] h-auto md:p-6 p-3 pb-6 hover:bg-secondary_light md:bg-transparent flex flex-col justify-between items-center">
       <div>
         <Image
           src={img}
           width={500}
           height={500}
-          className="w-full h-full object-cover"
+          className="w-full md:h-44 h-32 object-cover"
           alt="mmj"
         />
       </div>
-      <div className="flex flex-col gap-4 items-center">
-        <h2 className="text-[21px] font-semibold">{category}</h2>
-        <p>{detail}</p>
+      <div className="flex flex-col gap-4 items-center mt-4 md:mt-none">
+        <h2 className="md:text-[21px] text-[19px] font-semibold">{category}</h2>
+        <p className="md:text-auto text-[14px] text-center">{detail}</p>
         <Link href={`${btnLink}`}>
           <button className=" uppercase p-3 px-4 border-black border-[0.7px] text-black  hover:bg-primary hover:text-txt_light tracking-wider text-[12px]">
             Discover More
@@ -39,7 +39,7 @@ const CategorySec = () => {
           txtColor="black"
         />
       </div>
-      <div className="flex gap-7 w-[70%] justify-between mt-[20px]">
+      <div className="flex flex-wrap md:gap-7 gap-6 md:w-[70%] w-full md:justify-between mt-[20px] md:px-5 justify-center">
         {categories.map((item, id) => {
           return <CategoryCard {...item} key={id} />;
         })}

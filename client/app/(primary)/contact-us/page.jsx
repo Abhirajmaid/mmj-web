@@ -20,7 +20,7 @@ const page = () => {
           className="w-full h-full object-cover blur-[6px] "
         />
         <div className="w-full h-full absolute top-0 left-0 flex justify-center items-center bg-black/50 md:px-[6%]">
-          <div className="mt-14 md:w-[60%] w-[90%] md:h-[72vh] h-fit rounded-xl mx-auto flex md:flex-row flex-col items-center gap-6 bg-white overflow-hidden">
+          <div className="md:mt-14 md:w-[60%] w-[90%] md:h-[72vh] h-fit rounded-xl mx-auto flex md:flex-row flex-col items-center gap-6 bg-white overflow-hidden">
             <div className="md:w-[40%] w-full h-full">
               <Image
                 src="/contact_us.jpg"

@@ -829,14 +829,15 @@ export interface ApiHeroSlideHeroSlide extends Schema.CollectionType {
     singularName: 'hero-slide';
     pluralName: 'hero-slides';
     displayName: 'Hero Slide';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     url: Attribute.String;
+    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

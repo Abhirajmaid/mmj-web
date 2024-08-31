@@ -4,34 +4,29 @@
   "info": {
     "singularName": "hero-slide",
     "pluralName": "hero-slides",
-    "displayName": "Hero Slide"
+    "displayName": "Hero Slide",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
     "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "url": {
+      "type": "string"
+    },
+    "title": {
       "type": "string"
     }
   }

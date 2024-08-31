@@ -27,7 +27,7 @@ const NotificationCard = ({ data }) => {
 
 const NotificationContainer = () => {
   return (
-    <div className="relative w-[18%] border-l px-3 pb-10 pt-10">
+    <div className="relative w-[18%] border-l px-3 pb-10 pt-3">
       <div className="mb-10">
         <SectionTitle title="Notifications" txtColor="black" />
       </div>
