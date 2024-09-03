@@ -13,7 +13,7 @@ const PromisesSec = () => {
         />
       </div>
       <Image
-        src="/promises.svg"
+        src="/statics/promises.svg"
         width={700}
         height={700}
         className="md:w-[85%] md:h-[170px] w-[100%] h-[80px]"

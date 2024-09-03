@@ -84,7 +84,7 @@ const SigninForm = () => {
         {/* Left Image Section */}
         <div className="w-[55%] min-h-full">
           <Image
-            src="/contact_us.jpg"
+            src="/statics/contact_us.jpg"
             alt="Jewellery Model"
             className="object-cover w-full min-h-full"
             width={1500}

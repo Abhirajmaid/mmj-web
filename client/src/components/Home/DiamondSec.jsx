@@ -19,7 +19,7 @@ const DiamondSec = () => {
           className="md:row-span-1 col-span-3 bg-black rounded-lg overflow-hidden"
         >
           <Image
-            src="/1.png"
+            src="/statics/diamond/1.png"
             width={500}
             height={500}
             className="object-cover h-full w-full"
@@ -31,7 +31,7 @@ const DiamondSec = () => {
           className="md:row-span-1 col-span-3 bg-black rounded-lg overflow-hidden"
         >
           <Image
-            src="/2.png"
+            src="/statics/diamond/2.png"
             width={500}
             height={500}
             className="object-cover h-full w-full"
@@ -43,7 +43,7 @@ const DiamondSec = () => {
           className="md:row-span-2 col-span-3 bg-black rounded-lg overflow-hidden"
         >
           <Image
-            src="/3.png"
+            src="/statics/diamond/3.png"
             width={500}
             height={500}
             className="object-cover h-full w-full"
@@ -55,7 +55,7 @@ const DiamondSec = () => {
           className="md:row-span-1 col-span-3 bg-black rounded-lg overflow-hidden"
         >
           <Image
-            src="/4.png"
+            src="/statics/diamond/4.png"
             width={500}
             height={500}
             className="object-cover h-full w-full"
@@ -67,7 +67,7 @@ const DiamondSec = () => {
           className="md:row-span-1 col-span-3 bg-black rounded-lg overflow-hidden"
         >
           <Image
-            src="/5.png"
+            src="/statics/diamond/5.png"
             width={500}
             height={500}
             className="object-cover h-full w-full"

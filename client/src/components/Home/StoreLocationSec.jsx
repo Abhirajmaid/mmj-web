@@ -9,7 +9,7 @@ const StoreLocationSec = () => {
       className="w-full flex md:flex-row flex-col md:gap-[60px] gap-[20px] items-center justify-center bg-primary text-white"
     >
       <Image
-        src="/mmjstore.png"
+        src="/statics/mmjstore.png"
         width={500}
         height={500}
         className="md:w-[50%] w-full"

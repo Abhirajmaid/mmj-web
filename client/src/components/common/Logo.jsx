@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <Link href="/" className="h-full w-full">
       <Image
-        src="/Primary_Logo.png"
+        src="/icons/Primary_Logo.png"
         width={300}
         height={300}
         className="w-full h-full"

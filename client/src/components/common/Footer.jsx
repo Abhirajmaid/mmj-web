@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="md:block hidden relative w-full h-full pt-[45px] px-[130px] bg-[#e9b020]/50 overflow-hidden">
       <Image
-        src="/footer_bg.png"
+        src="/statics/footer_bg.png"
         width={400}
         height={500}
         className="absolute object-cover w-full top-0 left-0 opacity-10"

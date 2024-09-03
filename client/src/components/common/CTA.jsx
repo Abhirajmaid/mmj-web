@@ -92,7 +92,7 @@ const CTA = () => {
         </p>
       </div>
       <Image
-        src="/cta.svg"
+        src="/statics/cta.svg"
         width={700}
         height={700}
         alt="MMJ"

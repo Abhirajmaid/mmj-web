@@ -123,7 +123,7 @@ const JewelleryDetails = ({ data }) => {
           </Link>
         </div>
         <Image
-          src="/contact_details.svg"
+          src="/statics/contact_details.svg"
           width={700}
           height={300}
           className="w-full h-auto"

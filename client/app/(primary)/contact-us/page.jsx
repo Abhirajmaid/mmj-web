@@ -12,7 +12,7 @@ const page = () => {
     <>
       <div className="relative w-full md:h-[110vh] h-[150vh]">
         <Image
-          src="/contact_us.jpg"
+          src="/statics/contact_us.jpg"
           width={1500}
           height={1500}
           alt="MMJ"

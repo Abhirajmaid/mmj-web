@@ -1,47 +1,47 @@
 export const heroSlides = [
     {
         title: "Antelope Canyon Tour",
-        img: '/hero.png',
+        img: '/statics/hero.png',
         url: '/'
     },
     {
         title: "Antelope Canyon Tour",
-        img: '/hero.png',
+        img: '/statics/hero.png',
         url: '/'
     },
     {
         title: "Antelope Canyon Tour",
-        img: '/hero.png',
+        img: '/statics/hero.png',
         url: '/'
     },
     {
         title: "Antelope Canyon Tour",
-        img: '/hero.png',
+        img: '/statics/hero.png',
         url: '/'
     }
 ]
 
 export const categories = [
     {
-        img: '/diamond.png',
+        img: '/statics/category/diamond.png',
         category: "diamond",
         btnLink: "/jewellery/diamond",
         detail: "For the most awaited moment!"
     },
     {
-        img: '/gold.png',
+        img: '/statics/category/gold.png',
         category: "Gold",
         btnLink: "/jewellery/gold",
         detail: "For the beauty and the bliss!"
     },
     {
-        img: '/bullion.png',
+        img: '/statics/category/bullion.png',
         category: "bullions",
         btnLink: "/jewellery/bullions",
         detail: "For auspicious occasions!"
     },
     {
-        img: '/silver.png',
+        img: '/statics/category/silver.png',
         category: "silver",
         btnLink: "/jewellery/silver",
         detail: "For everyday elegance!"
@@ -137,27 +137,27 @@ export const productData = [
 
 export const mensCat = [
     {
-        img: '/goldchain.png',
+        img: '/statics/mens-sec/goldchain.png',
         category: "Gold Chain",
         btnLink: "/jewellery/jewellery_mens?product_type=chains",
     },
     {
-        img: '/goldring.png',
+        img: '/statics/mens-sec/goldring.png',
         category: "Gold Ring",
         btnLink: "/jewellery/jewellery_mens?product_type=rings",
     },
     {
-        img: '/pendant.png',
+        img: '/statics/mens-sec/pendant.png',
         category: "Pendant",
         btnLink: "/jewellery/jewellery_mens?product_type=pendants",
     },
     {
-        img: '/goldkada.png',
+        img: '/statics/mens-sec/goldkada.png',
         category: "Gold Kada",
         btnLink: "/jewellery/jewellery_mens?product_type=gold_kada",
     },
     {
-        img: '/silverjewellery.png',
+        img: '/statics/mens-sec/silverjewellery.png',
         category: "Silver Jewellery",
         btnLink: "/jewellery/jewellery_mens?product_type=silver",
     },
