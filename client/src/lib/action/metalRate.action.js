@@ -6,8 +6,8 @@ const axiosClient = axios.create({
 })
 
 
-const updateMetalRate = (metal) => axiosClient.put('/metal-rates?filters[metal][$eq]=' + metal, {
-
+const updateMetalRate = (data) => axiosClient.put('/metal-rates', {
+    data
 })
 
 const getMetalRates = () => axiosClient.get('/metal-rates')
