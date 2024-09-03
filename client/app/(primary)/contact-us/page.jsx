@@ -1,11 +1,10 @@
-// import { InfiniteMarquee } from "@src/components/common";
 import Image from "next/image";
 import React from "react";
 
 export const metadata = {
   title: "Contact Us",
   description:
-    "Got questions or feedback? Reach out to us! Our team is here to assist you.",
+    "Get in touch with Mukund Maid Jewellers for all your jewellery needs and inquiries.",
 };
 
 const page = () => {
