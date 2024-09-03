@@ -28,7 +28,7 @@ const SectionCard = ({ category, btnLink, img }) => {
 
 const MensSec = () => {
   return (
-    <section className="w-full flex flex-col items-center justify-center mt-12">
+    <section className="md:w-[1412px] w-full mx-auto flex flex-col items-center justify-center mt-12">
       <div>
         <SectionTitle
           title="Men’s Jewellery"
@@ -36,7 +36,7 @@ const MensSec = () => {
           txtColor="black"
         />
       </div>
-      <div className="flex flex-wrap md:flex-nowrap md:gap-7 gap-4 md:w-[70%] w-full md:justify-between mt-[20px] justify-center">
+      <div className="flex flex-wrap md:flex-nowrap md:gap-7 gap-4 w-full md:justify-between mt-[20px] justify-center">
         {mensCat.map((item, id) => {
           return <SectionCard {...item} key={id} />;
         })}

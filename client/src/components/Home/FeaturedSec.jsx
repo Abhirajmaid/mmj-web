@@ -88,7 +88,7 @@ const FeaturedSec = () => {
             .map((item, key) => {
               return (
                 <SwiperSlide
-                  className="flex items-center justify-center w-[280px] h-auto"
+                  className="flex items-center justify-center max-w-[290px] h-auto"
                   key={key}
                 >
                   <ProductCard item={item} />

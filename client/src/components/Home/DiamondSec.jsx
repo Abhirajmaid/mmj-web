@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const DiamondSec = () => {
   return (
-    <section className="md:w-[80%] w-[90%] mx-auto">
+    <section className="md:w-[1400PX] w-[90%] mx-auto">
       <div>
         <SectionTitle
           title="Diamond"

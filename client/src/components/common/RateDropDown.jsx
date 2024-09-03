@@ -89,7 +89,7 @@ export const RateLink = () => {
 
   const getRateList = () => {
     metalRateAction.getMetalRates().then((resp) => {
-      // console.log(resp.data.data);
+      console.log(resp.data.data);
       setData(resp.data.data);
     });
   };

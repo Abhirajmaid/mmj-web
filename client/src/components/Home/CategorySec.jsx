@@ -10,10 +10,11 @@ const CategoryCard = ({ category, btnLink, detail, img }) => {
       <div>
         <Image
           src={img}
-          width={500}
-          height={500}
-          className="w-full md:h-44 h-32 object-cover"
+          width={1500}
+          height={1500}
+          className="md:h-full h-32 object-cover"
           alt="mmj"
+          priority
         />
       </div>
       <div className="flex flex-col gap-4 items-center mt-4 md:mt-none">
@@ -31,7 +32,7 @@ const CategoryCard = ({ category, btnLink, detail, img }) => {
 
 const CategorySec = () => {
   return (
-    <section className="w-full flex flex-col items-center justify-center mt-12">
+    <section className="md:w-[1412px] w-full mx-auto flex flex-col items-center justify-center mt-12">
       <div>
         <SectionTitle
           title="Shop by Category"
@@ -39,7 +40,7 @@ const CategorySec = () => {
           txtColor="black"
         />
       </div>
-      <div className="flex flex-wrap md:gap-7 gap-6 md:w-[70%] w-full md:justify-between mt-[20px] md:px-5 justify-center">
+      <div className="flex flex-wrap md:gap-4 gap-6 w-full md:justify-between mt-[20px] md:px-5 justify-center">
         {categories.map((item, id) => {
           return <CategoryCard {...item} key={id} />;
         })}

@@ -3,20 +3,13 @@ import React, { useEffect, useState } from "react";
 import { Navlinks } from "..";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { Button } from "../ui/button";
-import Logo from "../common/Logo";
+import { useWindScreenowSize } from "@/src/hooks/useWindowSize";
 
 const SideNavbar = ({ links }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(0);
-
-  // const onlyWidth = useWindowWidth();
-  // const mobileWidth = onlyWidth < 768;
+  const windowWidth = useWindScreenowSize();
 
   useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", () => {
-      setWindowWidth(window.innerWidth);
-    });
     windowWidth < 768 ? setIsCollapsed(true) : setIsCollapsed(false);
   }, []);
 
