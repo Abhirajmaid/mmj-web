@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -8,6 +8,8 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { heroSlides } from "@/src/data/data";
 import Image from "next/image";
+import Link from "next/link";
+import heroAction from "@/src/lib/action/hero.action";
 
 const SlideCard = ({ img, title }) => {
   return (
@@ -27,6 +29,23 @@ const SlideCard = ({ img, title }) => {
 };
 
 const HeroMobile = () => {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    getHeroImgList();
+  }, []);
+
+  const getHeroImgList = () => {
+    heroAction
+      .getHeroImages()
+      .then((resp) => {
+        setData(resp.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <section className="md:hidden flex w-full mt-[80px] justify-center items-center bg-white">
       <Swiper
@@ -44,9 +63,14 @@ const HeroMobile = () => {
         modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
-        {heroSlides.map((slide, index) => (
+        {data?.map((item, index) => (
           <SwiperSlide key={index}>
-            <SlideCard img={slide.img} title={slide.title} />
+            <Link href={`${item?.attributes?.url}`}>
+              <SlideCard
+                img={item?.attributes?.img?.data?.attributes?.url}
+                title={item?.attributes?.title}
+              />
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -1,3 +1,4 @@
+import { ContactForm } from "@/src/components";
 import Image from "next/image";
 import React from "react";
 
@@ -29,39 +30,10 @@ const page = () => {
                 className="object-cover h-full w-full"
               />
             </div>
-            <form
-              className="flex flex-col md:w-[60%] w-full p-8 px-6  gap-6 mx-auto"
-              // onSubmit={handleSubmit}
-            >
-              <h1 className="font-semibold text-[40px]">Contact Us</h1>
-              <input
-                type="text"
-                className="p-4 bg-slate-200 rounded-md focus:outline-[#00000052]"
-                placeholder="Your Name"
-              />
-              <input
-                type="text"
-                className="p-4 bg-slate-200 rounded-md focus:outline-[#00000052]"
-                placeholder="Your Email"
-              />
-              <input
-                type="text"
-                className="p-4 bg-slate-200 rounded-md focus:outline-[#00000052]"
-                placeholder="Phone"
-              />
-              <textarea
-                placeholder="Message"
-                className="p-4 bg-slate-200 rounded-md resize-none focus:outline-[#00000052]"
-                rows="6"
-              ></textarea>
-              <button className="btn btn-secondary !w-[40%]">Send</button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>
-      {/* <div className="h-fit -mt-6">
-        <InfiniteMarquee txt="CHAI" />
-      </div> */}
     </>
   );
 };

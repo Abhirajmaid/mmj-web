@@ -823,6 +823,46 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiCollectionCollection extends Schema.CollectionType {
+  collectionName: 'collections';
+  info: {
+    singularName: 'collection';
+    pluralName: 'collections';
+    displayName: 'Collection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    jewelleries: Attribute.Relation<
+      'api::collection.collection',
+      'manyToMany',
+      'api::jewellery.jewellery'
+    >;
+    img: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    url: Attribute.String;
+    slug: Attribute.UID;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::collection.collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::collection.collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHeroSlideHeroSlide extends Schema.CollectionType {
   collectionName: 'hero_slides';
   info: {
@@ -873,13 +913,14 @@ export interface ApiJewelleryJewellery extends Schema.CollectionType {
     metal_color: Attribute.Enumeration<
       ['Yellow', 'Rose', 'White', 'Temple(Polish)']
     >;
-    new_ins: Attribute.Boolean;
-    best_sellers: Attribute.Boolean;
+    new_ins: Attribute.Boolean & Attribute.DefaultTo<false>;
+    best_sellers: Attribute.Boolean & Attribute.DefaultTo<false>;
     weight: Attribute.Decimal;
     metal_purity: Attribute.Integer;
     making_charges: Attribute.Integer;
-    tax: Attribute.Integer;
-    availability: Attribute.Enumeration<['Ready', 'On Order']>;
+    tax: Attribute.Integer & Attribute.DefaultTo<3>;
+    availability: Attribute.Enumeration<['Ready', 'On Order']> &
+      Attribute.DefaultTo<'Ready'>;
     img: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     categories: Attribute.Relation<
       'api::jewellery.jewellery',
@@ -906,11 +947,20 @@ export interface ApiJewelleryJewellery extends Schema.CollectionType {
       ]
     >;
     sku: Attribute.UID<'api::jewellery.jewellery', 'product_code'>;
-    stock_availability: Attribute.Boolean;
+    stock_availability: Attribute.Boolean & Attribute.DefaultTo<true>;
     metal_rate: Attribute.Relation<
       'api::jewellery.jewellery',
       'manyToOne',
       'api::metal-rate.metal-rate'
+    >;
+    vyapri: Attribute.Enumeration<
+      ['mmj_ready', 'gatha_gold', 'sanju_jain', 'santosh_varma']
+    > &
+      Attribute.DefaultTo<'mmj_ready'>;
+    collections: Attribute.Relation<
+      'api::jewellery.jewellery',
+      'manyToMany',
+      'api::collection.collection'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -999,6 +1049,37 @@ export interface ApiMobileNumberMobileNumber extends Schema.CollectionType {
   };
 }
 
+export interface ApiNotificationNotification extends Schema.CollectionType {
+  collectionName: 'notifications';
+  info: {
+    singularName: 'notification';
+    pluralName: 'notifications';
+    displayName: 'Notification';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    notification: Attribute.Text;
+    date: Attribute.Date & Attribute.DefaultTo<'2024-08-30'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::notification.notification',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::notification.notification',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1018,10 +1099,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
+      'api::collection.collection': ApiCollectionCollection;
       'api::hero-slide.hero-slide': ApiHeroSlideHeroSlide;
       'api::jewellery.jewellery': ApiJewelleryJewellery;
       'api::metal-rate.metal-rate': ApiMetalRateMetalRate;
       'api::mobile-number.mobile-number': ApiMobileNumberMobileNumber;
+      'api::notification.notification': ApiNotificationNotification;
     }
   }
 }

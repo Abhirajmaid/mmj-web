@@ -1,4 +1,5 @@
 import { ComingSoon } from "@/src/components";
+import CollectionGrid from "@/src/components/Collection/CollectionGrid";
 import React from "react";
 
 export const metadata = {
@@ -9,9 +10,9 @@ export const metadata = {
 
 const page = () => {
   return (
-    <div>
-      <ComingSoon />
-    </div>
+    <>
+      <CollectionGrid />
+    </>
   );
 };
 

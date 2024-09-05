@@ -17,6 +17,7 @@ import Link from "next/link";
 import userAction from "@/src/lib/action/user.action";
 import { Toast } from "@/src/context/ToastContext";
 import { useRouter } from "next/navigation";
+import { setCookie } from "cookies-next";
 
 const formSchema = z.object({
   email: z
@@ -67,8 +68,9 @@ const SigninForm = () => {
         sessionStorage.setItem("user", JSON.stringify(resp.data.user));
         sessionStorage.setItem("jwt", JSON.stringify(resp.data.jwt));
         success("You are Successfuly Log In");
-        router.push("/");
         setLoader(false);
+        setCookie("jwt", resp.data.jwt, { maxAge: 60 * 60 * 24 });
+        router.push("/");
       })
       .catch((e) => {
         console.log(e);

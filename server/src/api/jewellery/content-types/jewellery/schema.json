@@ -28,10 +28,12 @@
       ]
     },
     "new_ins": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "best_sellers": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "weight": {
       "type": "decimal"
@@ -43,14 +45,16 @@
       "type": "integer"
     },
     "tax": {
-      "type": "integer"
+      "type": "integer",
+      "default": 3
     },
     "availability": {
       "type": "enumeration",
       "enum": [
         "Ready",
         "On Order"
-      ]
+      ],
+      "default": "Ready"
     },
     "img": {
       "type": "media",
@@ -94,12 +98,29 @@
       "targetField": "product_code"
     },
     "stock_availability": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     },
     "metal_rate": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::metal-rate.metal-rate",
+      "inversedBy": "jewelleries"
+    },
+    "vyapri": {
+      "type": "enumeration",
+      "enum": [
+        "mmj_ready",
+        "gatha_gold",
+        "sanju_jain",
+        "santosh_varma"
+      ],
+      "default": "mmj_ready"
+    },
+    "collections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::collection.collection",
       "inversedBy": "jewelleries"
     }
   }

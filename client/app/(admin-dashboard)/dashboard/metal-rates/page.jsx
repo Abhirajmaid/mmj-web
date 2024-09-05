@@ -16,6 +16,8 @@ import {
 import { Input } from "@/src/components/ui/input";
 import metalRateAction from "@/src/lib/action/metalRate.action";
 import { SectionTitle } from "@/src/components";
+import { Toast } from "@/src/context/ToastContext";
+import { Icon } from "@iconify/react";
 
 const formSchema = z.object({
   gold24k: z.coerce.number().min(2),
@@ -27,6 +29,9 @@ const formSchema = z.object({
 
 const page = () => {
   const [data, setData] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const { success, error } = Toast();
 
   useEffect(() => {
     getRateList();
@@ -51,8 +56,33 @@ const page = () => {
   });
 
   function onSubmit(values) {
-    // updateMetalRateList();
-    console.log(values);
+    setLoading(true);
+    if (values) {
+      metalRateAction.updateMetalRate(1, values?.gold24k).catch((e) => {
+        console.log("error", e);
+        error("Something Went Wrong!");
+      });
+      metalRateAction.updateMetalRate(2, values?.gold22k).catch((e) => {
+        console.log("error", e);
+        error("Something Went Wrong!");
+      });
+      metalRateAction.updateMetalRate(3, values?.gold18k).catch((e) => {
+        console.log("error", e);
+        error("Something Went Wrong!");
+      });
+      metalRateAction.updateMetalRate(4, values?.gold12k).catch((e) => {
+        console.log("error", e);
+        error("Something Went Wrong!");
+      });
+      metalRateAction.updateMetalRate(5, values?.silver).catch((e) => {
+        console.log("error", e);
+        error("Something Went Wrong!");
+      });
+      success("Rates Updated Successfuly!");
+      setLoading(false);
+    } else {
+      error("Value are not updated");
+    }
   }
 
   return (
@@ -74,11 +104,13 @@ const page = () => {
                 <FormControl>
                   <Input
                     type="number"
-                    placeholder={data && data[1]?.attributes?.rate}
+                    placeholder={data && data[4]?.attributes?.rate}
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>Type current 24KT metal rate.</FormDescription>
+                <FormDescription>
+                  Type current 24KT metal rate. (Per Gram)
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -96,7 +128,9 @@ const page = () => {
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>Type current 22KT metal rate.</FormDescription>
+                <FormDescription>
+                  Type current 22KT metal rate. (Per Gram)
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -110,11 +144,13 @@ const page = () => {
                 <FormControl>
                   <Input
                     type="number"
-                    placeholder={data && data[4]?.attributes?.rate}
+                    placeholder={data && data[1]?.attributes?.rate}
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>Type current 18KT metal rate.</FormDescription>
+                <FormDescription>
+                  Type current 18KT metal rate. (Per Gram)
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -132,7 +168,9 @@ const page = () => {
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>Type current 12KT metal rate.</FormDescription>
+                <FormDescription>
+                  Type current 12KT metal rate. (Per Gram)
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -150,7 +188,9 @@ const page = () => {
                     {...field}
                   />
                 </FormControl>
-                <FormDescription>Type current silver rate.</FormDescription>
+                <FormDescription>
+                  Type current silver rate. (Per Gram)
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -161,7 +201,11 @@ const page = () => {
             className="bg-primary hover:bg-bg_dark hover:text-black text-white"
             variant="primary"
           >
-            Submit
+            {loading ? (
+              <Icon icon="svg-spinners:180-ring" width={20} />
+            ) : (
+              <>Submit</>
+            )}
           </Button>
         </form>
       </Form>

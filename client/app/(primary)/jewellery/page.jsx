@@ -26,7 +26,6 @@ const page = () => {
     jewelleryAction
       .getJewellery()
       .then((resp) => {
-        // console.log(resp.data.data);
         setData(resp.data.data);
       })
       .catch((error) => {

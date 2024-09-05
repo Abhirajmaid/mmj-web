@@ -37,4 +37,6 @@ export { default as SigninForm } from "./auth/SigninForm"
 
 export { default as AboutUs } from "./About/AboutUs"
 
+export { default as ContactForm } from "./Contact/ContactForm"
+
 export { default as Policies } from "./StaticPages/Policies"

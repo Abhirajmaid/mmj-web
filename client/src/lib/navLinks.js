@@ -1,5 +1,3 @@
-import { LayoutDashboard, UserRound, TrendingUp, UsersRound } from "lucide-react";
-
 export const navLinks = [
     {
         id: 1,
@@ -196,7 +194,6 @@ export const navLinks = [
         id: 6,
         linkText: "Collections",
         url: "/collections",
-        target: "_blank"
     },
 ];
 

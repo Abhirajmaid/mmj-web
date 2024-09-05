@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { useRouter } from "next/navigation";
 import userAction from "@/src/lib/action/user.action";
 import { Toast } from "@/src/context/ToastContext";
 import { Loader } from "@/src/components";
+import { deleteCookie } from "cookies-next";
 
 const ProfilePage = () => {
   const router = useRouter();
@@ -24,7 +24,6 @@ const ProfilePage = () => {
     userAction
       .fetchLoggedInUser(token)
       .then((resp) => {
-        // console.log(resp.data);
         setUser(resp.data);
       })
       .catch((error) => {
@@ -35,6 +34,7 @@ const ProfilePage = () => {
 
   const onSignOut = () => {
     sessionStorage.clear();
+    deleteCookie("jwt");
     router.push("/");
   };
 

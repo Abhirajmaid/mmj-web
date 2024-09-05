@@ -15,21 +15,25 @@ import {
   DropdownMenuTrigger,
 } from "@/src/components/ui/dropdown-menu";
 
+import { deleteCookie, hasCookie } from "cookies-next";
+
 const Nav = () => {
   const pathname = usePathname();
   const router = useRouter();
+
   const isActive = (href) => pathname == href;
 
-  const [isLogin, setIsLogin] = useState();
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsLogin(sessionStorage?.getItem("jwt") ? true : false);
+    if (hasCookie("jwt")) {
+      setIsLogin(true);
     }
   }, []);
 
   const onSignOut = () => {
     sessionStorage.clear();
+    deleteCookie("jwt");
     router.push("/sign-in");
   };
 
