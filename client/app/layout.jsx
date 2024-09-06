@@ -7,7 +7,7 @@ import Head from "next/head";
 const open_sans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata = {
-  metadataBase: new URL("https://mukundmaidjewellers.com"),
+  metadataBase: new URL("https://mukundmaidjewellers.vercel.app"),
   title: {
     default: "Mukund Maid Jewellers",
     template: "%s | Mukund Maid Jewellers",
