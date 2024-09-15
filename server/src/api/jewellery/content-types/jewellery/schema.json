@@ -111,9 +111,9 @@
       "type": "enumeration",
       "enum": [
         "mmj_ready",
-        "gatha_gold",
-        "sanju_jain",
-        "santosh_varma"
+        "gg_gold",
+        "sj",
+        "sv"
       ],
       "default": "mmj_ready"
     },
@@ -122,6 +122,14 @@
       "relation": "manyToMany",
       "target": "api::collection.collection",
       "inversedBy": "jewelleries"
+    },
+    "branch": {
+      "type": "enumeration",
+      "enum": [
+        "branch#1",
+        "branch#2"
+      ],
+      "default": "branch#1"
     }
   }
 }

@@ -953,15 +953,15 @@ export interface ApiJewelleryJewellery extends Schema.CollectionType {
       'manyToOne',
       'api::metal-rate.metal-rate'
     >;
-    vyapri: Attribute.Enumeration<
-      ['mmj_ready', 'gatha_gold', 'sanju_jain', 'santosh_varma']
-    > &
+    vyapri: Attribute.Enumeration<['mmj_ready', 'gg_gold', 'sj', 'sv']> &
       Attribute.DefaultTo<'mmj_ready'>;
     collections: Attribute.Relation<
       'api::jewellery.jewellery',
       'manyToMany',
       'api::collection.collection'
     >;
+    branch: Attribute.Enumeration<['branch#1', 'branch#2']> &
+      Attribute.DefaultTo<'branch#1'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
